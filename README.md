@@ -23,7 +23,7 @@
 - UI Set up
 - Alternate ending scene
 
-## Week 4 (Strech Goals)
+## Week 4 (Streach Goals)
 - Dog random event
 - Bird random event
 - Cool looking stick sword
