@@ -1,10 +1,18 @@
-[gd_scene load_steps=8 format=3 uid="uid://bdbf6a6rgn8uv"]
+[gd_scene load_steps=13 format=3 uid="uid://bdbf6a6rgn8uv"]
 
 [ext_resource type="ArrayMesh" uid="uid://bk0ojrtynixyk" path="res://assets/models/playground/swingset/Cylinder_022.res" id="1_vdsso"]
 [ext_resource type="Script" path="res://scripts/playground/swingseat.gd" id="2_cwpdq"]
 [ext_resource type="ArrayMesh" uid="uid://d08x5xihh2asv" path="res://assets/models/playground/swingset/Plane_009.res" id="3_27e10"]
+[ext_resource type="Script" path="res://addons/smoothing/smoothing.gd" id="3_i4fko"]
+[ext_resource type="Script" path="res://scripts/components/seats/seat.gd" id="4_4rqhl"]
+[ext_resource type="Shader" path="res://assets/materials/outline3D.gdshader" id="4_uwarr"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_ger1o"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_nw8l7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_awa3o"]
+render_priority = 0
+shader = ExtResource("4_uwarr")
+shader_parameter/outline_color = Color(1, 1, 1, 1)
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_332s7"]
 
@@ -15,7 +23,22 @@ sky_material = SubResource("ProceduralSkyMaterial_332s7")
 background_mode = 2
 sky = SubResource("Sky_jcpi2")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_ger1o"]
+
 [node name="TestSwingset" type="Node3D"]
+
+[node name="Seat" type="Node3D" parent="." node_paths=PackedStringArray("main_camera", "highlight_target")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+script = ExtResource("4_4rqhl")
+main_camera = NodePath("../Swingseat/Smoothing/SwingCamera")
+highlight_target = NodePath("../Swingseat/Smoothing/MeshInstance3D")
+
+[node name="HoverDetector" type="Area3D" parent="Seat"]
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Seat/HoverDetector"]
+shape = SubResource("BoxShape3D_nw8l7")
 
 [node name="Swingtop" type="MeshInstance3D" parent="."]
 transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, 0)
@@ -25,18 +48,23 @@ mesh = ExtResource("1_vdsso")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.573392, 0)
 script = ExtResource("2_cwpdq")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Swingseat"]
+[node name="Smoothing" type="Node3D" parent="Swingseat"]
+script = ExtResource("3_i4fko")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Swingseat/Smoothing"]
 transform = Transform3D(128, 0, 0, 0, -5.59506e-06, 128, 0, -128, -5.59506e-06, 0, 2.46649, 0)
+material_overlay = SubResource("ShaderMaterial_awa3o")
 mesh = ExtResource("3_27e10")
+skeleton = NodePath("../..")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Swingseat"]
-shape = SubResource("BoxShape3D_ger1o")
-
-[node name="Camera3D" type="Camera3D" parent="Swingseat"]
-transform = Transform3D(-3.08988e-06, 0.00174533, -0.999999, -0.00174533, 0.999997, 0.00174533, 0.999999, 0.00174533, -4.37111e-08, -0.386451, 1.05587, -0.000287056)
+[node name="SwingCamera" type="Camera3D" parent="Swingseat/Smoothing"]
+transform = Transform3D(-3.08988e-06, 0.00174533, -0.999999, -0.00174533, 0.999997, 0.00174533, 0.999999, 0.00174533, -4.36937e-08, -0.386451, 1.05587, -0.000287056)
 environment = SubResource("Environment_k5ubr")
 fov = 95.0
 size = 0.078
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Swingseat"]
+shape = SubResource("BoxShape3D_ger1o")
 
 [node name="HingeJoint3D" type="HingeJoint3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.0841, 0)
@@ -44,3 +72,8 @@ node_b = NodePath("../Swingseat")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.95038, 0.0206226, 0.310407, -0.311091, 0.063002, 0.94829, 0, -0.9978, 0.0662913, 1.01858, 3.62553, 0)
+
+[connection signal="area_entered" from="Seat/HoverDetector" to="Seat" method="_on_hover_detector_area_entered"]
+[connection signal="area_exited" from="Seat/HoverDetector" to="Seat" method="_on_hover_detector_area_exited"]
+[connection signal="mouse_entered" from="Seat/HoverDetector" to="Seat" method="_on_hover_detector_mouse_entered"]
+[connection signal="mouse_exited" from="Seat/HoverDetector" to="Seat" method="_on_hover_detector_mouse_exited"]

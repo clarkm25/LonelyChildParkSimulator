@@ -1,0 +1,124 @@
+[gd_scene load_steps=18 format=3 uid="uid://yqdpqgs75rfm"]
+
+[ext_resource type="PackedScene" uid="uid://bdbf6a6rgn8uv" path="res://scenes/playground/swingset/test_swingset.tscn" id="1_6exlk"]
+[ext_resource type="Script" path="res://scripts/player/player.gd" id="1_gywt4"]
+[ext_resource type="Script" path="res://scripts/components/seats/seat_switcher.gd" id="2_os5u2"]
+[ext_resource type="Script" path="res://addons/interpolated_camera_3d/interpolated_camera_3d.gd" id="3_da8bb"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_afqvf"]
+size = Vector3(50, 0.5, 50)
+
+[sub_resource type="Gradient" id="Gradient_4klx6"]
+offsets = PackedFloat32Array(0, 0.992063)
+colors = PackedColorArray(0.988235, 0.792157, 0.6, 1, 0.442456, 0.302736, 0.172932, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_1xrp7"]
+noise_type = 2
+frequency = 0.0689
+cellular_return_type = 0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_418fa"]
+seamless = true
+seamless_blend_skirt = 0.283
+normalize = false
+color_ramp = SubResource("Gradient_4klx6")
+noise = SubResource("FastNoiseLite_1xrp7")
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_d2wsn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t2alp"]
+albedo_texture = SubResource("NoiseTexture2D_418fa")
+clearcoat = 0.0
+clearcoat_roughness = 1.0
+heightmap_scale = -5.198
+heightmap_texture = SubResource("NoiseTexture2D_d2wsn")
+uv1_scale = Vector3(64, 48, 64)
+texture_filter = 1
+
+[sub_resource type="BoxMesh" id="BoxMesh_0rpeh"]
+material = SubResource("StandardMaterial3D_t2alp")
+size = Vector3(50, 0.5, 50)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wyxm6"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_4wag4"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6wfbb"]
+sky_top_color = Color(0.529412, 0.596078, 0.698039, 1)
+sky_horizon_color = Color(0.776471, 0.780392, 0.796078, 1)
+ground_bottom_color = Color(0.25098, 0.192157, 0.168627, 1)
+ground_horizon_color = Color(0.745098, 0.752941, 0.764706, 1)
+
+[sub_resource type="Sky" id="Sky_y665l"]
+sky_material = SubResource("ProceduralSkyMaterial_6wfbb")
+
+[sub_resource type="Environment" id="Environment_jdaph"]
+background_mode = 2
+sky = SubResource("Sky_y665l")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fuvgw"]
+size = Vector3(0.01, 0.01, 1)
+
+[node name="LvlDebug" type="Node3D"]
+
+[node name="Environment" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+
+[node name="Platform" type="StaticBody3D" parent="Environment"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Platform"]
+shape = SubResource("BoxShape3D_afqvf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/Platform"]
+mesh = SubResource("BoxMesh_0rpeh")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, -0.439939, 0.898027, 0, -0.898027, -0.439939, 0, 20, 0)
+shadow_enabled = true
+shadow_bias = 0.403
+
+[node name="Objects" type="Node3D" parent="."]
+
+[node name="TestSwingset" parent="Objects" instance=ExtResource("1_6exlk")]
+
+[node name="Seat" parent="Objects/TestSwingset" index="0" node_paths=PackedStringArray("main_camera", "highlight_target")]
+main_camera = NodePath("../Swingseat/SwingCamera")
+highlight_target = NodePath("../Swingseat/MeshInstance3D")
+
+[node name="CollisionShape3D" parent="Objects/TestSwingset/Seat/HoverDetector" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.184369, 0)
+
+[node name="MeshInstance3D" parent="Objects/TestSwingset/Swingseat" index="0"]
+transform = Transform3D(128, 0, 0, 0, -5.59506e-06, 128, 0, -128, -5.59506e-06, 0, 2.46649, 0)
+
+[node name="Player" type="CharacterBody3D" parent="." groups=["player"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.14705, 2, 0)
+collision_mask = 3
+script = ExtResource("1_gywt4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+shape = SubResource("CapsuleShape3D_wyxm6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
+mesh = SubResource("CapsuleMesh_4wag4")
+
+[node name="InterpolatedCamera3D" type="Camera3D" parent="Player" node_paths=PackedStringArray("target")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+cull_mask = 1048573
+environment = SubResource("Environment_jdaph")
+current = true
+script = ExtResource("3_da8bb")
+target = NodePath("..")
+
+[node name="SeatDetector" type="Area3D" parent="Player/InterpolatedCamera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+collision_layer = 2
+collision_mask = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player/InterpolatedCamera3D/SeatDetector"]
+shape = SubResource("BoxShape3D_fuvgw")
+
+[node name="SeatSwitcher" type="Node3D" parent="Player"]
+script = ExtResource("2_os5u2")
+
+[editable path="Objects/TestSwingset"]
