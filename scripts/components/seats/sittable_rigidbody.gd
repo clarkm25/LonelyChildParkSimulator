@@ -1,6 +1,6 @@
 @icon("res://assets/materials/seat.svg")
-class_name Seat
-extends Node3D
+class_name SittableRigidbody
+extends RigidBody3D
 
 ## This seat's camera
 @export var main_camera : Camera3D
@@ -17,9 +17,12 @@ var entered := false
 
 var player : CharacterBody3D
 
+var debug := false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player = get_tree().get_first_node_in_group("player")
+	if player == null:
+		entered = true
 
 func _on_hover_detector_area_entered(area):
 	highlight_target.set_instance_shader_parameter("thickness", outline_thickness)

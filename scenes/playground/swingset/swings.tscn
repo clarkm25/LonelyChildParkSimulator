@@ -1,0 +1,70 @@
+[gd_scene load_steps=12 format=3 uid="uid://bdbf6a6rgn8uv"]
+
+[ext_resource type="ArrayMesh" uid="uid://bk0ojrtynixyk" path="res://assets/models/playground/swingset/Cylinder_022.res" id="1_vdsso"]
+[ext_resource type="Script" path="res://scenes/playground/swingset/swingset_seat.gd" id="2_py7hx"]
+[ext_resource type="ArrayMesh" uid="uid://d08x5xihh2asv" path="res://assets/models/playground/swingset/Plane_009.res" id="3_27e10"]
+[ext_resource type="Script" path="res://addons/smoothing/smoothing.gd" id="3_i4fko"]
+[ext_resource type="Shader" path="res://assets/materials/outline3D.gdshader" id="4_uwarr"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ger1o"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nw8l7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_awa3o"]
+render_priority = 0
+shader = ExtResource("4_uwarr")
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_332s7"]
+
+[sub_resource type="Sky" id="Sky_jcpi2"]
+sky_material = SubResource("ProceduralSkyMaterial_332s7")
+
+[sub_resource type="Environment" id="Environment_k5ubr"]
+background_mode = 2
+sky = SubResource("Sky_jcpi2")
+
+[node name="Swings" type="Node3D"]
+
+[node name="SwingsetSeat" type="RigidBody3D" parent="." node_paths=PackedStringArray("main_camera")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+script = ExtResource("2_py7hx")
+main_camera = NodePath("../Smoothing/SwingCamera")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SwingsetSeat"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.073392, 0)
+shape = SubResource("BoxShape3D_ger1o")
+
+[node name="HoverDetector" type="Area3D" parent="SwingsetSeat"]
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SwingsetSeat/HoverDetector"]
+shape = SubResource("BoxShape3D_nw8l7")
+
+[node name="Smoothing" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.573392, 0)
+script = ExtResource("3_i4fko")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Smoothing"]
+transform = Transform3D(128, 0, 0, 0, -5.59506e-06, 128, 0, -128, -5.59506e-06, 0, 2.46649, 0)
+material_overlay = SubResource("ShaderMaterial_awa3o")
+mesh = ExtResource("3_27e10")
+skeleton = NodePath("")
+
+[node name="SwingCamera" type="Camera3D" parent="Smoothing"]
+transform = Transform3D(-3.08988e-06, 0.00174533, -0.999999, -0.00174533, 0.999997, 0.00174533, 0.999999, 0.00174533, -4.36937e-08, -0.386451, 1.05587, -0.000287056)
+environment = SubResource("Environment_k5ubr")
+fov = 95.0
+size = 0.078
+
+[node name="Swingtop" type="MeshInstance3D" parent="."]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, 0)
+mesh = ExtResource("1_vdsso")
+
+[node name="HingeJoint3D" type="HingeJoint3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.0841, 0)
+node_b = NodePath("../SwingsetSeat")
+
+[connection signal="area_entered" from="SwingsetSeat/HoverDetector" to="SwingsetSeat" method="_on_hover_detector_area_entered"]
+[connection signal="area_exited" from="SwingsetSeat/HoverDetector" to="SwingsetSeat" method="_on_hover_detector_area_exited"]

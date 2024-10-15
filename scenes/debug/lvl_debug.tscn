@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://yqdpqgs75rfm"]
 
-[ext_resource type="PackedScene" uid="uid://bdbf6a6rgn8uv" path="res://scenes/playground/swingset/test_swingset.tscn" id="1_6exlk"]
+[ext_resource type="PackedScene" uid="uid://bdbf6a6rgn8uv" path="res://scenes/playground/swingset/swings.tscn" id="1_6exlk"]
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_gywt4"]
 [ext_resource type="Script" path="res://addons/smoothing/smoothing.gd" id="4_nddgh"]
 
@@ -80,8 +80,8 @@ shadow_bias = 0.403
 
 [node name="TestSwingset" parent="Objects" instance=ExtResource("1_6exlk")]
 
-[node name="CollisionShape3D" parent="Objects/TestSwingset/Seat/HoverDetector" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.184369, 0)
+[node name="SwingsetSeat" parent="Objects/TestSwingset" index="0" node_paths=PackedStringArray("highlight_target")]
+highlight_target = NodePath("../Smoothing/MeshInstance3D")
 
 [node name="Player" type="CharacterBody3D" parent="." groups=["player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.14705, 2, 0)
