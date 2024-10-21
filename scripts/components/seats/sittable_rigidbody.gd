@@ -43,6 +43,8 @@ func _input(event):
 		elif entered:
 			player.show()
 			player.process_mode = Node.PROCESS_MODE_INHERIT
+	#		player.look_at(global_position + linear_velocity.normalized())
+
 			main_camera.current = false
 			enterable = true
 			entered = false

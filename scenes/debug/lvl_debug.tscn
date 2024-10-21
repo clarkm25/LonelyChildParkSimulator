@@ -1,8 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://yqdpqgs75rfm"]
+[gd_scene load_steps=15 format=3 uid="uid://yqdpqgs75rfm"]
 
 [ext_resource type="PackedScene" uid="uid://bdbf6a6rgn8uv" path="res://scenes/playground/swingset/swings.tscn" id="1_6exlk"]
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_gywt4"]
 [ext_resource type="Script" path="res://addons/smoothing/smoothing.gd" id="4_nddgh"]
+[ext_resource type="Environment" uid="uid://ye4runms7608" path="res://assets/materials/lvl_debug_camenvironment.tres" id="4_xpoqp"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_afqvf"]
 size = Vector3(50, 0.5, 50)
@@ -42,19 +43,6 @@ size = Vector3(50, 0.5, 50)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_4wag4"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6wfbb"]
-sky_top_color = Color(0.529412, 0.596078, 0.698039, 1)
-sky_horizon_color = Color(0.776471, 0.780392, 0.796078, 1)
-ground_bottom_color = Color(0.25098, 0.192157, 0.168627, 1)
-ground_horizon_color = Color(0.745098, 0.752941, 0.764706, 1)
-
-[sub_resource type="Sky" id="Sky_y665l"]
-sky_material = SubResource("ProceduralSkyMaterial_6wfbb")
-
-[sub_resource type="Environment" id="Environment_jdaph"]
-background_mode = 2
-sky = SubResource("Sky_y665l")
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_fuvgw"]
 size = Vector3(0.01, 0.01, 1)
 
@@ -80,12 +68,10 @@ shadow_bias = 0.403
 
 [node name="TestSwingset" parent="Objects" instance=ExtResource("1_6exlk")]
 
-[node name="SwingsetSeat" parent="Objects/TestSwingset" index="0" node_paths=PackedStringArray("highlight_target")]
-highlight_target = NodePath("../Smoothing/MeshInstance3D")
-
 [node name="Player" type="CharacterBody3D" parent="." groups=["player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.14705, 2, 0)
 collision_mask = 3
+platform_floor_layers = 4294967265
 script = ExtResource("1_gywt4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
@@ -100,8 +86,9 @@ script = ExtResource("4_nddgh")
 [node name="Camera3D" type="Camera3D" parent="Player/Smoothing"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 cull_mask = 1048573
-environment = SubResource("Environment_jdaph")
+environment = ExtResource("4_xpoqp")
 current = true
+fov = 100.0
 
 [node name="SeatDetector" type="Area3D" parent="Player/Smoothing/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
@@ -110,5 +97,3 @@ collision_mask = 16
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player/Smoothing/Camera3D/SeatDetector"]
 shape = SubResource("BoxShape3D_fuvgw")
-
-[editable path="Objects/TestSwingset"]

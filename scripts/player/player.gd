@@ -6,13 +6,18 @@ const JUMP_VELOCITY = 4.5
 
 @export var mouse_sens := 0.002
 
+@onready var camera = $Smoothing/Camera3D
+var thrown := false
+
 func _ready():
 	# locks mouse to window
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
 func _physics_process(delta):
 	# Add the gravity.
-	if not is_on_floor():
+	if is_on_floor():
+		thrown = false
+	else:
 		velocity += get_gravity() * delta
 
 	# Handle jump.
@@ -23,22 +28,21 @@ func _physics_process(delta):
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_back")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	if direction:
-		velocity.x = direction.x * SPEED
-		velocity.z = direction.z * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.z = move_toward(velocity.z, 0, SPEED)
-
+	if !thrown:
+		if direction:
+			velocity.x = direction.x * SPEED
+			velocity.z = direction.z * SPEED
+		else:
+			velocity.x = move_toward(velocity.x, 0, SPEED)
+			velocity.z = move_toward(velocity.z, 0, SPEED)
+	
 	move_and_slide()
-	
-	
 
 func _input(event):
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		rotate_y(-event.relative.x * mouse_sens)
-		$Smoothing/Camera3D.rotate_x(-event.relative.y * mouse_sens)
-		$Smoothing/Camera3D.rotation.x = clampf($Smoothing/Camera3D.rotation.x, -deg_to_rad(70), deg_to_rad(70))
+		camera.rotate_x(-event.relative.y * mouse_sens)
+		camera.rotation.x = clampf(camera.rotation.x, -deg_to_rad(70), deg_to_rad(70))
 	
 	if event.is_action_pressed("ui_cancel"):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
