@@ -32,6 +32,8 @@ var player : CharacterBody3D
 var player_cam_pos : Vector3
 
 var debug := false
+
+var QTE : Node3D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player = get_tree().get_first_node_in_group("player")
@@ -41,6 +43,7 @@ func _ready():
 	hover_detector.connect("area_entered", _on_hover_detector_area_entered)
 	hover_detector.connect("area_exited", _on_hover_detector_area_exited)
 	
+	QTE = get_node_or_null("QTE")
 	#highlight_target.material_overlay = glow_shader
 
 func _on_hover_detector_area_entered(area):

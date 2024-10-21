@@ -67,7 +67,7 @@ shadow_enabled = true
 [node name="Objects" type="Node3D" parent="."]
 
 [node name="Carousel" parent="Objects" instance=ExtResource("5_gpfqc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.58397, 0.0629158, -6.60748)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.58397, 4.76837e-07, -6.60748)
 
 [node name="Swings" parent="Objects" instance=ExtResource("1_6exlk")]
 
@@ -75,7 +75,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.58397, 0.0629158, -6.60748)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.14705, 2, 0)
 collision_layer = 2
 collision_mask = 7
-platform_floor_layers = 4294967264
+platform_on_leave = 1
+platform_floor_layers = 4294967265
 script = ExtResource("1_gywt4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]

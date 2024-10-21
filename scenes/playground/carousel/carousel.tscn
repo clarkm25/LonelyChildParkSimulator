@@ -14,8 +14,8 @@ points = PackedVector3Array(-1.42455e-05, 0.0727842, 0.00861288, 0.0141949, 0.07
 [node name="Carousel" type="Node3D"]
 
 [node name="CarouselSeat" type="RigidBody3D" parent="." node_paths=PackedStringArray("player_seated_location", "hover_detector", "highlight_target")]
-collision_layer = 0
-collision_mask = 0
+collision_layer = 16
+collision_mask = 16
 axis_lock_linear_x = true
 axis_lock_linear_y = true
 axis_lock_linear_z = true
@@ -23,6 +23,7 @@ axis_lock_angular_x = true
 axis_lock_angular_z = true
 script = ExtResource("1_jt17v")
 player_seated_location = NodePath("Smoothing/PlayerPosition")
+override_exit_behavior = true
 hover_detector = NodePath("HoverDetector")
 highlight_target = NodePath("Smoothing/CarouselModel")
 glow_outline_thickness = 0.001
