@@ -1,11 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://bdbf6a6rgn8uv"]
+[gd_scene load_steps=9 format=3 uid="uid://bdbf6a6rgn8uv"]
 
 [ext_resource type="ArrayMesh" uid="uid://bk0ojrtynixyk" path="res://assets/models/playground/swingset/Cylinder_022.res" id="1_vdsso"]
-[ext_resource type="Script" path="res://scenes/playground/swingset/swingset_seat.gd" id="2_py7hx"]
+[ext_resource type="Script" path="res://scripts/playground/swingset_seat.gd" id="2_py7hx"]
 [ext_resource type="ArrayMesh" uid="uid://d08x5xihh2asv" path="res://assets/models/playground/swingset/Plane_009.res" id="3_27e10"]
+[ext_resource type="Material" uid="uid://b7fg3sb5iio2d" path="res://assets/materials/glow_shader.tres" id="3_d5ept"]
 [ext_resource type="Script" path="res://addons/smoothing/smoothing.gd" id="3_i4fko"]
-[ext_resource type="Shader" path="res://assets/materials/outline3D.gdshader" id="4_uwarr"]
-[ext_resource type="Environment" uid="uid://ye4runms7608" path="res://assets/materials/lvl_debug_camenvironment.tres" id="5_vuh02"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yi2uq"]
 friction = 0.5
@@ -15,14 +14,9 @@ bounce = 0.5
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nw8l7"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_awa3o"]
-render_priority = 0
-shader = ExtResource("4_uwarr")
-shader_parameter/outline_color = Color(1, 1, 1, 1)
-
 [node name="Swings" type="Node3D"]
 
-[node name="SwingsetSeat" type="RigidBody3D" parent="." node_paths=PackedStringArray("main_camera", "highlight_target")]
+[node name="SwingsetSeat" type="RigidBody3D" parent="." node_paths=PackedStringArray("player_seated_location", "hover_detector", "highlight_target")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 collision_layer = 8
 collision_mask = 0
@@ -30,7 +24,9 @@ mass = 20.0
 physics_material_override = SubResource("PhysicsMaterial_yi2uq")
 center_of_mass_mode = 1
 script = ExtResource("2_py7hx")
-main_camera = NodePath("Smoothing/SwingCamera")
+player_seated_location = NodePath("Smoothing/PlayerPosition")
+override_exit_behavior = true
+hover_detector = NodePath("HoverDetector")
 highlight_target = NodePath("Smoothing/MeshInstance3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SwingsetSeat"]
@@ -46,18 +42,16 @@ shape = SubResource("BoxShape3D_nw8l7")
 
 [node name="Smoothing" type="Node3D" parent="SwingsetSeat"]
 script = ExtResource("3_i4fko")
+flags = 15
+
+[node name="PlayerPosition" type="Node3D" parent="SwingsetSeat/Smoothing"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.528561, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="SwingsetSeat/Smoothing"]
+physics_interpolation_mode = 1
 transform = Transform3D(-5.59506e-06, -128, -5.59506e-06, 0, -5.59506e-06, 128, -128, 5.59506e-06, 2.44568e-13, 0, 2.6, 0)
-material_overlay = SubResource("ShaderMaterial_awa3o")
+material_overlay = ExtResource("3_d5ept")
 mesh = ExtResource("3_27e10")
-skeleton = NodePath("")
-
-[node name="SwingCamera" type="Camera3D" parent="SwingsetSeat/Smoothing"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.294, 0.27)
-environment = ExtResource("5_vuh02")
-fov = 100.0
-size = 0.078
 
 [node name="Swingtop" type="MeshInstance3D" parent="."]
 transform = Transform3D(-2.62268e-07, 0, 6, 0, 6, 0, -6, 0, -2.62268e-07, 0, 0, 0)
@@ -67,6 +61,3 @@ mesh = ExtResource("1_vdsso")
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 3.0841, 0)
 node_b = NodePath("../SwingsetSeat")
 params/bias = 0.99
-
-[connection signal="area_entered" from="SwingsetSeat/HoverDetector" to="SwingsetSeat" method="_on_hover_detector_area_entered"]
-[connection signal="area_exited" from="SwingsetSeat/HoverDetector" to="SwingsetSeat" method="_on_hover_detector_area_exited"]

@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://yqdpqgs75rfm"]
+[gd_scene load_steps=16 format=3 uid="uid://yqdpqgs75rfm"]
 
 [ext_resource type="PackedScene" uid="uid://bdbf6a6rgn8uv" path="res://scenes/playground/swingset/swings.tscn" id="1_6exlk"]
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_gywt4"]
 [ext_resource type="Script" path="res://addons/smoothing/smoothing.gd" id="4_nddgh"]
 [ext_resource type="Environment" uid="uid://ye4runms7608" path="res://assets/materials/lvl_debug_camenvironment.tres" id="4_xpoqp"]
+[ext_resource type="PackedScene" uid="uid://dr38hholcs2sx" path="res://scenes/playground/carousel/carousel.tscn" id="5_gpfqc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_afqvf"]
 size = Vector3(50, 0.5, 50)
@@ -62,11 +63,13 @@ mesh = SubResource("BoxMesh_0rpeh")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment"]
 transform = Transform3D(1, 0, 0, 0, -0.439939, 0.898027, 0, -0.898027, -0.439939, 0, 20, 0)
 shadow_enabled = true
-shadow_bias = 0.403
 
 [node name="Objects" type="Node3D" parent="."]
 
-[node name="TestSwingset" parent="Objects" instance=ExtResource("1_6exlk")]
+[node name="Carousel" parent="Objects" instance=ExtResource("5_gpfqc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.58397, 4.76837e-07, -6.60748)
+
+[node name="Swings" parent="Objects" instance=ExtResource("1_6exlk")]
 
 [node name="Player" type="CharacterBody3D" parent="." groups=["player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.14705, 2, 0)
@@ -81,6 +84,7 @@ shape = SubResource("CapsuleShape3D_wyxm6")
 mesh = SubResource("CapsuleMesh_4wag4")
 
 [node name="Smoothing" type="Node3D" parent="Player"]
+transform = Transform3D(0.999999, 0.000802873, -0.000810099, -0.000802031, 0.999999, 0.00102896, 0.000810933, -0.00102831, 0.999999, 0, 0, 0)
 script = ExtResource("4_nddgh")
 
 [node name="Camera3D" type="Camera3D" parent="Player/Smoothing"]

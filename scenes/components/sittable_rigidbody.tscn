@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://ili04gyxojny"]
+
+[ext_resource type="Script" path="res://scripts/components/seats/sittable_rigidbody.gd" id="1_mdhs7"]
+[ext_resource type="Script" path="res://addons/smoothing/smoothing.gd" id="2_hgmv7"]
+
+[node name="SittableRigidbody" type="RigidBody3D" node_paths=PackedStringArray("player_seated_location", "hover_detector", "highlight_target")]
+script = ExtResource("1_mdhs7")
+player_seated_location = NodePath("FramerateSmoother/PlayerPosition")
+hover_detector = NodePath("HoverDetector")
+highlight_target = NodePath("FramerateSmoother/MeshInstance3D")
+
+[node name="PhysicsShape" type="CollisionShape3D" parent="."]
+editor_description = "For calculation of central force & torque... can mostly ignore"
+
+[node name="HoverDetector" type="Area3D" parent="."]
+editor_description = "The Area2D that the user can look at to trigger activation"
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HoverDetector"]
+
+[node name="FramerateSmoother" type="Node3D" parent="."]
+editor_description = "Interpolates the position of children nodes to current framerate instead of physics_process. This should be used for the player position node as well as the visual mesh for the moving part itself (like the swingset chair)"
+script = ExtResource("2_hgmv7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="FramerateSmoother"]
+
+[node name="PlayerPosition" type="Node3D" parent="FramerateSmoother"]
