@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bgdwboxa0gnor"
-path="res://.godot/imported/IceCream-Truck.fbx-ce74a68cdf3b1eee15ae165385c66d59.scn"
+path="res://.godot/imported/Icecream_Truck.fbx-56691defb1210b4348e2e3e9c8390051.scn"
 
 [deps]
 
-source_file="res://assets/models/icecream_truck/IceCream-Truck.fbx"
-dest_files=["res://.godot/imported/IceCream-Truck.fbx-ce74a68cdf3b1eee15ae165385c66d59.scn"]
+source_file="res://assets/models/icecream_truck/Icecream_Truck.fbx"
+dest_files=["res://.godot/imported/Icecream_Truck.fbx-56691defb1210b4348e2e3e9c8390051.scn"]
 
 [params]
 
