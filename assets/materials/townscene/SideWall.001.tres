@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://b3d8cj2vyw72k"]
+
+[resource]
+resource_name = "SideWall.001"
+cull_mode = 2
+albedo_color = Color(0.622619, 0.529829, 0.45264, 1)
+roughness = 0.552786

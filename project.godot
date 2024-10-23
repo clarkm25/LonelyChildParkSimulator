@@ -18,6 +18,9 @@ config/icon="res://icon.svg"
 [display]
 
 window/stretch/mode="canvas_items"
+[debug]
+
+shapes/collision/shape_color=Color(0, 0.717647, 0.839216, 1)
 
 [editor]
 
@@ -25,7 +28,7 @@ naming/script_name_casing=2
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/smoothing/plugin.cfg")
+enabled=PackedStringArray("res://addons/AutoMat/plugin.cfg", "res://addons/smoothing/plugin.cfg")
 
 [global_group]
 

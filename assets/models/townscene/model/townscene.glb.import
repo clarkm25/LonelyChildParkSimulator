@@ -1,0 +1,207 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://dp8m4sg13vlme"
+path="res://.godot/imported/townscene.glb-97cdcf146818ca0b1108338afdbc5abb.scn"
+
+[deps]
+
+source_file="res://assets/models/townscene/model/townscene.glb"
+dest_files=["res://.godot/imported/townscene.glb-97cdcf146818ca0b1108338afdbc5abb.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+_subresources={
+"materials": {
+"BIG_WALL_S_WALL.001": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/materials/townscene/BIG_WALL_S_WALL.001.tres"
+},
+"BeerBillboard.001": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/materials/townscene/BeerBillboard.001.tres"
+},
+"Big_Tower.002": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/materials/townscene/Big_Tower.002.tres"
+},
+"Big_Tower.003": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/materials/townscene/Big_Tower.003.tres"
+},
+"BlackBodyLamp.001": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/materials/townscene/BlackBodyLamp.001.tres"
+},
+"BlackGlass.002": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/materials/townscene/BlackGlass.002.tres"
+},
+"BusStopSampleAd.002": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/materials/townscene/BusStopSampleAd.002.tres"
+},
+"Default_Material.001": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/materials/townscene/Default_Material.001.tres"
+},
+"Electronics.001": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/materials/townscene/Electronics.001.tres"
+},
+"FootPathTopEdge.001": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/materials/townscene/FootPathTopEdge.001.tres"
+},
+"Foothpath2Sides.001": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/materials/townscene/Foothpath2Sides.001.tres"
+},
+"Footpath.001": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/materials/townscene/Footpath.001.tres"
+},
+"Footpath2Edge.001": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/materials/townscene/Footpath2Edge.001.tres"
+},
+"Footpath2Texture.001": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/materials/townscene/Footpath2Texture.001.tres"
+},
+"Garments.001": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/materials/townscene/Garments.001.tres"
+},
+"GiftShop.001": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/materials/townscene/GiftShop.001.tres"
+},
+"Green_Plant_1.001": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/materials/townscene/Green_Plant_1.001.tres"
+},
+"IceCreamShopbanner.001": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/materials/townscene/IceCreamShopbanner.001.tres"
+},
+"Material_001.001": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/materials/townscene/Material_001.001.tres"
+},
+"OrangeLight.001": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/materials/townscene/OrangeLight.001.tres"
+},
+"OrangeLight_1.001": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/materials/townscene/OrangeLight_1.001.tres"
+},
+"PermanentRoad.001": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/materials/townscene/PermanentRoad.001.tres"
+},
+"PizzaCorner.001": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/materials/townscene/PizzaCorner.001.tres"
+},
+"ROOF_BIG_WALL_ORIGNAL.001": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/materials/townscene/ROOF_BIG_WALL_ORIGNAL.001.tres"
+},
+"RedGlowing.001": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/materials/townscene/RedGlowing.001.tres"
+},
+"RoadEdge.001": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/materials/townscene/RoadEdge.001.tres"
+},
+"RoadEnd.001": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/materials/townscene/RoadEnd.001.tres"
+},
+"RoadMiddle.001": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/materials/townscene/RoadMiddle.001.tres"
+},
+"SideWall.001": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/materials/townscene/SideWall.001.tres"
+},
+"SmallStone.001": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/materials/townscene/SmallStone.001.tres"
+},
+"TrafficLightBody.001": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/materials/townscene/TrafficLightBody.001.tres"
+},
+"Trafficlightbars.001": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/materials/townscene/Trafficlightbars.001.tres"
+},
+"Zebra_Cross.001": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/materials/townscene/Zebra_Cross.001.tres"
+},
+"_3Way_Road.001": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/materials/townscene/_3Way_Road.001.tres"
+},
+"foothpathtop.001": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/materials/townscene/foothpathtop.001.tres"
+},
+"lambert1.001": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/materials/townscene/lambert1.001.tres"
+},
+"lightRed.001": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/materials/townscene/lightRed.001.tres"
+},
+"lightorange.001": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/materials/townscene/lightorange.001.tres"
+},
+"mHouse1.001": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/materials/townscene/mHouse1.001.tres"
+},
+"mHouse1_Ground.001": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/materials/townscene/mHouse1_Ground.001.tres"
+},
+"pathtop1.001": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/materials/townscene/pathtop1.001.tres"
+},
+"traveloworld.001": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/materials/townscene/traveloworld.001.tres"
+}
+}
+}
+gltf/naming_version=1
+gltf/embedded_image_handling=1

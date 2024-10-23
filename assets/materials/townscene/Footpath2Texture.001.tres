@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cncofedsr54va"]
+
+[ext_resource type="Texture2D" uid="uid://clwntdjv2xdpg" path="res://assets/models/townscene/model/townscene_DiffuseColor_Texture_6.png" id="1_vtmxp"]
+
+[resource]
+resource_name = "Footpath2Texture.001"
+cull_mode = 2
+albedo_texture = ExtResource("1_vtmxp")
+roughness = 0.552786

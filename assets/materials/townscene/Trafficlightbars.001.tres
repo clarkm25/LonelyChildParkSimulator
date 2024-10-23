@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://b1vc47bmpyboj"]
+
+[resource]
+resource_name = "Trafficlightbars.001"
+cull_mode = 2
+albedo_color = Color(1, 0.91608, 0.365252, 1)
+roughness = 0.552786
