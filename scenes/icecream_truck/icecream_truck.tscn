@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b1bvttb51stfx"]
+[gd_scene load_steps=16 format=3 uid="uid://b1bvttb51stfx"]
 
 [ext_resource type="Script" path="res://scripts/playground/icecream_truck_seat.gd" id="1_akegc"]
 [ext_resource type="Script" path="res://addons/smoothing/smoothing.gd" id="2_jktyh"]
@@ -15,6 +15,69 @@ size = Vector3(2.5, 1, 2.5)
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_t55ia"]
 points = PackedVector3Array(-1.42455e-05, 0.0727842, 0.00861288, 0.0141949, 0.0713876, 0.00861288, -1.42455e-05, 0.0727842, 0, -0.0142091, 0.0713876, 0.00861288, -1.42455e-05, 0.0702189, 0.0474751, 0.0278481, 0.0672545, 0.00861288, 0.0141949, 0.0713876, 0, 0.000612833, 0.0700621, 0.0474677, 0.000612833, 0.0687652, 0.0575632, -0.0142091, 0.0713876, 0, -0.0278624, 0.0672545, 0.00861288, -0.000627078, 0.0687652, 0.0575632, -0.000627078, 0.0700621, 0.0474677, -1.42455e-05, 0.068922, 0.0576228, 0.0404325, 0.0605276, 0.00861288, 0.0278481, 0.0672545, 0, 0.000612833, 0.0638768, 0.0649318, 0.0514635, 0.0514635, 0.00861288, -0.0278624, 0.0672545, 0, -0.0404468, 0.0605276, 0.00861288, -0.000627078, 0.0638768, 0.0649318, -0.0514777, 0.0514635, 0.00861288, 7.45058e-09, 0.0639766, 0.0650585, 0.0404325, 0.0605276, 0, 7.45058e-09, 0.0557105, 0.0681952, 0.000612833, 0.0556678, 0.0680313, 0.0638768, 0.000612833, 0.0649318, 0.0514635, 0.0514635, 0, 0.0687652, 0.000612833, 0.0575632, 0.0605276, 0.0404325, 0.00861288, -0.0404468, 0.0605276, 0, -0.0638911, 0.000612833, 0.0649318, -0.000627078, 0.0556678, 0.0680313, -0.0514777, 0.0514635, 0, -0.0605419, 0.0404325, 0.00861288, -0.0687794, 0.000612833, 0.0575632, 0.000826612, 0.000826612, 0.075996, 0.0557105, -1.42455e-05, 0.0681952, 0.0556678, 0.000612833, 0.0680313, -0.0557247, -1.42455e-05, 0.0681952, -0.00084085, 0.000826612, 0.075996, -1.42455e-05, 0.000826612, 0.0760481, 0.0639766, -1.42455e-05, 0.0650585, 0.068922, -1.42455e-05, 0.0576228, 0.0605276, 0.0404325, 0, 0.0700621, 0.000612833, 0.0474677, 0.0713876, 0.0141949, 0.00861288, 0.0672545, 0.0278481, 0.00861288, -0.0689362, -1.42455e-05, 0.0576228, -0.0639908, -1.42455e-05, 0.0650585, -0.055682, 0.000612833, 0.0680313, -0.0605419, 0.0404325, 0, -0.0672688, 0.0278481, 0.00861288, -0.0714018, 0.0141949, 0.00861288, -0.0700764, 0.000612833, 0.0474677, -1.42455e-05, -1.42455e-05, 0.0761077, 0.000826612, -1.42455e-05, 0.0760481, 0.0556678, -0.000627078, 0.0680313, 0.0638768, -0.000627078, 0.0649318, 0.000826612, -0.00084085, 0.075996, 7.45058e-09, -0.0557247, 0.0681952, -0.0638911, -0.000627078, 0.0649318, -0.055682, -0.000627078, 0.0680313, -0.000627078, -0.055682, 0.0680313, -0.00084085, -0.00084085, 0.075996, -0.00084085, -1.42455e-05, 0.0760481, 0.0687652, -0.000627078, 0.0575632, 0.0700621, -0.000627078, 0.0474677, 0.0702189, -1.42455e-05, 0.0474751, 0.0672545, 0.0278481, 0, 0.0727842, -1.42455e-05, 0.00861288, 0.0713876, 0.0141949, 0, -0.0702331, -1.42455e-05, 0.0474751, -0.0700764, -0.000627078, 0.0474677, -0.0687794, -0.000627078, 0.0575632, -0.0672688, 0.0278481, 0, -0.0714018, 0.0141949, 0, -0.0727985, -1.42455e-05, 0.00861288, -1.42455e-05, -0.00084085, 0.0760481, 0.000612833, -0.055682, 0.0680313, 0.0514635, -0.0514777, 0.00861288, 0.000612833, -0.0638911, 0.0649318, 7.45058e-09, -0.0639908, 0.0650585, -0.000627078, -0.0638911, 0.0649318, -0.0514777, -0.0514777, 0.00861288, 0.0672545, -0.0278624, 0.00861288, 0.0713876, -0.0142091, 0.00861288, 0.0605276, -0.0404468, 0.00861288, 0.0727842, -1.42455e-05, 0, -0.0714018, -0.0142091, 0.00861288, -0.0672688, -0.0278624, 0.00861288, -0.0605419, -0.0404468, 0.00861288, -0.0727985, -1.42455e-05, 0, 0.000612833, -0.0687794, 0.0575632, 0.0404325, -0.0605419, 0.00861288, 0.0514635, -0.0514777, 0, -1.42455e-05, -0.0689362, 0.0576228, -0.000627078, -0.0687794, 0.0575632, -0.0514777, -0.0514777, 0, -0.0404468, -0.0605419, 0.00861288, 0.0672545, -0.0278624, 0, 0.0713876, -0.0142091, 0, 0.0605276, -0.0404468, 0, -0.0714018, -0.0142091, 0, -0.0672688, -0.0278624, 0, -0.0605419, -0.0404468, 0, 0.000612833, -0.0700764, 0.0474677, 0.0141949, -0.0714018, 0.00861288, 0.0278481, -0.0672688, 0.00861288, 0.0404325, -0.0605419, 0, -0.000627078, -0.0700764, 0.0474677, -1.42455e-05, -0.0702331, 0.0474751, -0.0278624, -0.0672688, 0.00861288, -0.0142091, -0.0714018, 0.00861288, -0.0404468, -0.0605419, 0, 0.0141949, -0.0714018, 0, -1.42455e-05, -0.0727985, 0.00861288, 0.0278481, -0.0672688, 0, -0.0278624, -0.0672688, 0, -0.0142091, -0.0714018, 0, -1.42455e-05, -0.0727985, 0)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ni11c"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_s2nmi"]
+material = SubResource("StandardMaterial3D_ni11c")
+size = Vector3(15, 5, 1)
+
+[sub_resource type="Animation" id="Animation_oa2o4"]
+resource_name = "Drive"
+length = 30.0
+step = 0.25
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 2
+tracks/0/loop_wrap = false
+tracks/0/keys = PackedFloat32Array(0, 1, -1000, 0, 0, 29.5, 1, 0, 0, 0)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("IcecreamTruckModel/WheelFrontLeft")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array()
+tracks/2/type = "rotation_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("IcecreamTruckModel/WheelFrontRight")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array()
+tracks/3/type = "rotation_3d"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("IcecreamTruckModel/WheelRearLeft")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array()
+tracks/4/type = "rotation_3d"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("IcecreamTruckModel/WheelRearRight")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = PackedFloat32Array()
+
+[sub_resource type="Animation" id="Animation_a51p4"]
+length = 0.001
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h4vls"]
+_data = {
+"Drive": SubResource("Animation_oa2o4"),
+"RESET": SubResource("Animation_a51p4")
+}
+
 [node name="IcecreamTruck" type="Node3D"]
 
 [node name="IcecreamTruckSeat" type="RigidBody3D" parent="." node_paths=PackedStringArray("player_seated_location", "hover_detector", "highlight_target")]
@@ -28,7 +91,7 @@ axis_lock_angular_z = true
 script = ExtResource("1_akegc")
 player_seated_location = NodePath("Smoothing/PlayerPosition")
 hover_detector = NodePath("HoverDetector")
-highlight_target = NodePath("Smoothing/IcecreamTruckModel/Body")
+highlight_target = NodePath("../IcecreamTruckModel/Body")
 
 [node name="HoverDetector" type="Area3D" parent="IcecreamTruckSeat"]
 collision_layer = 16
@@ -44,38 +107,52 @@ script = ExtResource("2_jktyh")
 [node name="PlayerPosition" type="Node3D" parent="IcecreamTruckSeat/Smoothing"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.919096, 0.941154, 0.523976)
 
-[node name="IcecreamTruckModel" type="Node3D" parent="IcecreamTruckSeat/Smoothing"]
-
-[node name="Body" type="MeshInstance3D" parent="IcecreamTruckSeat/Smoothing/IcecreamTruckModel"]
-transform = Transform3D(16, 0, 0, 0, 16, 0, 0, 0, 16, 0, 0, 0)
-material_overlay = ExtResource("3_3qevy")
-mesh = ExtResource("4_hhack")
-skeleton = NodePath("../../..")
-
-[node name="WheelFrontLeft" type="MeshInstance3D" parent="IcecreamTruckSeat/Smoothing/IcecreamTruckModel"]
-transform = Transform3D(16, 0, 0, 0, 16, 0, 0, 0, 16, -13.791, 0, 4.91755)
-material_overlay = ExtResource("3_3qevy")
-mesh = ExtResource("5_t7y3k")
-skeleton = NodePath("../../..")
-
-[node name="WheelFrontRight" type="MeshInstance3D" parent="IcecreamTruckSeat/Smoothing/IcecreamTruckModel"]
-transform = Transform3D(16, 0, 0, 0, 16, 0, 0, 0, 16, -13.791, 0, -4.918)
-material_overlay = ExtResource("3_3qevy")
-mesh = ExtResource("6_iq2je")
-skeleton = NodePath("../../..")
-
-[node name="WheelRearLeft" type="MeshInstance3D" parent="IcecreamTruckSeat/Smoothing/IcecreamTruckModel"]
-transform = Transform3D(16, 0, 0, 0, 16, 0, 0, 0, 16, 12.491, 0, 5.754)
-material_overlay = ExtResource("3_3qevy")
-mesh = ExtResource("7_mebxd")
-skeleton = NodePath("../../..")
-
-[node name="WheelRearRight" type="MeshInstance3D" parent="IcecreamTruckSeat/Smoothing/IcecreamTruckModel"]
-transform = Transform3D(16, 0, 0, 0, 16, 0, 0, 0, 16, 12.4908, 0, -5.75444)
-material_overlay = ExtResource("3_3qevy")
-mesh = ExtResource("8_j6kyx")
-skeleton = NodePath("../../..")
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="IcecreamTruckSeat"]
 transform = Transform3D(16, 0, 0, 0, -6.99382e-07, 16, 0, -16, -6.99382e-07, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_t55ia")
+
+[node name="IcecreamTruckModel" type="Node3D" parent="."]
+
+[node name="Body" type="MeshInstance3D" parent="IcecreamTruckModel"]
+transform = Transform3D(16, 0, 0, 0, 16, 0, 0, 0, 16, 0, 0, 0)
+material_overlay = ExtResource("3_3qevy")
+mesh = ExtResource("4_hhack")
+skeleton = NodePath("../../IcecreamTruckSeat")
+
+[node name="WheelFrontLeft" type="MeshInstance3D" parent="IcecreamTruckModel"]
+transform = Transform3D(16, 0, 0, 0, 16, 0, 0, 0, 16, -13.791, 0, 4.91755)
+material_overlay = ExtResource("3_3qevy")
+mesh = ExtResource("5_t7y3k")
+skeleton = NodePath("../../IcecreamTruckSeat")
+
+[node name="WheelFrontRight" type="MeshInstance3D" parent="IcecreamTruckModel"]
+transform = Transform3D(16, 0, 0, 0, 16, 0, 0, 0, 16, -13.791, 0, -4.918)
+material_overlay = ExtResource("3_3qevy")
+mesh = ExtResource("6_iq2je")
+skeleton = NodePath("../../IcecreamTruckSeat")
+
+[node name="WheelRearLeft" type="MeshInstance3D" parent="IcecreamTruckModel"]
+transform = Transform3D(16, 0, 0, 0, 16, 0, 0, 0, 16, 12.491, 0, 5.754)
+material_overlay = ExtResource("3_3qevy")
+mesh = ExtResource("7_mebxd")
+skeleton = NodePath("../../IcecreamTruckSeat")
+
+[node name="WheelRearRight" type="MeshInstance3D" parent="IcecreamTruckModel"]
+transform = Transform3D(16, 0, 0, 0, 16, 0, 0, 0, 16, 12.4908, 0, -5.75444)
+material_overlay = ExtResource("3_3qevy")
+mesh = ExtResource("8_j6kyx")
+skeleton = NodePath("../../IcecreamTruckSeat")
+
+[node name="BlackBox" type="MeshInstance3D" parent="IcecreamTruckModel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.74548, 7.90342, 4.95495)
+mesh = SubResource("BoxMesh_s2nmi")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_h4vls")
+}
