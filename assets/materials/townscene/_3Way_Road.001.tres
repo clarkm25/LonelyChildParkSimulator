@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bne77yie02xs"]
+
+[ext_resource type="Texture2D" uid="uid://cchcppmiypxd6" path="res://assets/models/townscene/model/townscene_DiffuseColor_Texture_3.png" id="1_4gc2o"]
+
+[resource]
+resource_name = "_3Way_Road.001"
+cull_mode = 2
+albedo_texture = ExtResource("1_4gc2o")
+roughness = 0.552786

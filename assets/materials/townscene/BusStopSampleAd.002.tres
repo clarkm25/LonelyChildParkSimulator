@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dkpm017pibs2d"]
+
+[ext_resource type="Texture2D" uid="uid://dhvvmpi774htb" path="res://assets/models/townscene/model/townscene_DiffuseColor_Texture_10.png" id="1_66217"]
+
+[resource]
+resource_name = "BusStopSampleAd.002"
+cull_mode = 2
+albedo_texture = ExtResource("1_66217")
+roughness = 0.552786

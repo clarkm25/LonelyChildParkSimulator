@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://t3v1l61s8by7"]
+
+[resource]
+resource_name = "BlackGlass.002"
+cull_mode = 2
+albedo_color = Color(0, 0, 0, 1)
+roughness = 0.552786

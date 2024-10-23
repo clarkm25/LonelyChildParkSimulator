@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cpa78gbhb4s6q"]
+
+[ext_resource type="Texture2D" uid="uid://0lc5xyv8u0q1" path="res://assets/models/townscene/model/townscene_DiffuseColor_Texture.png" id="1_xrigx"]
+
+[resource]
+resource_name = "ROOF_BIG_WALL_ORIGNAL.001"
+cull_mode = 2
+albedo_texture = ExtResource("1_xrigx")
+roughness = 0.552786
