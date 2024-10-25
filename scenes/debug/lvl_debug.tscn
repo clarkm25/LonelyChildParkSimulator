@@ -1,41 +1,15 @@
-[gd_scene load_steps=11 format=3 uid="uid://yqdpqgs75rfm"]
+[gd_scene load_steps=7 format=3 uid="uid://yqdpqgs75rfm"]
 
 [ext_resource type="PackedScene" uid="uid://bdbf6a6rgn8uv" path="res://scenes/playground/swingset/swings.tscn" id="1_6exlk"]
+[ext_resource type="Material" uid="uid://banb877kk5j52" path="res://assets/materials/barkchip.tres" id="1_lkv3c"]
 [ext_resource type="PackedScene" uid="uid://c62hnifxmw3w2" path="res://scenes/player/player.tscn" id="3_n2qx8"]
 [ext_resource type="PackedScene" uid="uid://dr38hholcs2sx" path="res://scenes/playground/carousel/carousel.tscn" id="5_gpfqc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_afqvf"]
 size = Vector3(50, 0.5, 50)
 
-[sub_resource type="Gradient" id="Gradient_4klx6"]
-offsets = PackedFloat32Array(0, 0.992063)
-colors = PackedColorArray(0.988235, 0.792157, 0.6, 1, 0.442456, 0.302736, 0.172932, 1)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_1xrp7"]
-noise_type = 2
-frequency = 0.0689
-cellular_return_type = 0
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_418fa"]
-seamless = true
-seamless_blend_skirt = 0.283
-normalize = false
-color_ramp = SubResource("Gradient_4klx6")
-noise = SubResource("FastNoiseLite_1xrp7")
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_d2wsn"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t2alp"]
-albedo_texture = SubResource("NoiseTexture2D_418fa")
-clearcoat = 0.0
-clearcoat_roughness = 1.0
-heightmap_scale = -5.198
-heightmap_texture = SubResource("NoiseTexture2D_d2wsn")
-uv1_scale = Vector3(64, 48, 64)
-texture_filter = 1
-
 [sub_resource type="BoxMesh" id="BoxMesh_0rpeh"]
-material = SubResource("StandardMaterial3D_t2alp")
+material = ExtResource("1_lkv3c")
 size = Vector3(50, 0.5, 50)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wyxm6"]

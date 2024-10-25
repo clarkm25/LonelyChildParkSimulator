@@ -3,5 +3,6 @@
 [resource]
 resource_name = "BlackBodyLamp.001"
 cull_mode = 2
-albedo_color = Color(0.480007, 0.455816, 0.438415, 1)
-roughness = 0.552786
+albedo_color = Color(0.325291, 0.306368, 0.292744, 1)
+metallic = 0.6
+roughness = 0.3
