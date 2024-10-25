@@ -108,3 +108,4 @@ shape = SubResource("BoxShape3D_fuvgw")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.410595, -14.55)
 
 [node name="IcecreamTruck" parent="TruckContainer" instance=ExtResource("6_hcf5t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10, 0)
