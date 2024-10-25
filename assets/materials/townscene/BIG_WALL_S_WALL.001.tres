@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://5jfmcnlro0ye"]
+
+[resource]
+resource_name = "BIG_WALL_S_WALL.001"
+cull_mode = 2
+albedo_color = Color(0.411556, 0.507391, 0.610452, 1)
+roughness = 0.552786

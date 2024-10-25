@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dhv4ybx5ljwt2"]
+
+[resource]
+resource_name = "foothpathtop.001"
+cull_mode = 2
+albedo_color = Color(0.651772, 0.634142, 0.634142, 1)
+roughness = 0.552786

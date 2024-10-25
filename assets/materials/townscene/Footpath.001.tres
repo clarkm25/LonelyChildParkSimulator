@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dj6a6xkmr67gi"]
+
+[resource]
+resource_name = "Footpath.001"
+cull_mode = 2
+albedo_color = Color(0.578582, 0.54847, 0.54847, 1)
+roughness = 0.552786

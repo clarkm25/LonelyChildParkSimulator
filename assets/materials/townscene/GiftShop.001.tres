@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cu44fds5rlxor"]
+
+[ext_resource type="Texture2D" uid="uid://dq77fcl1mdjfu" path="res://assets/models/townscene/model/townscene_DiffuseColor_Texture_13.png" id="1_cwbv5"]
+
+[resource]
+resource_name = "GiftShop.001"
+cull_mode = 2
+albedo_texture = ExtResource("1_cwbv5")
+roughness = 0.552786

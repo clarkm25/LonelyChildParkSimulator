@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://kp7hr4ju1soa"]
+
+[ext_resource type="Texture2D" uid="uid://da54ccibwkrp2" path="res://assets/models/townscene/model/townscene_DiffuseColor_Texture_1_2.png" id="1_qujmu"]
+
+[resource]
+resource_name = "Big_Tower.003"
+cull_mode = 2
+albedo_texture = ExtResource("1_qujmu")
+roughness = 0.552786

@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cre6m2e13nmhk"]
+
+[ext_resource type="Texture2D" uid="uid://bqo7oguyw5qpf" path="res://assets/models/townscene/model/townscene_DiffuseColor_Texture_9.png" id="1_ky7wu"]
+
+[resource]
+resource_name = "RoadEnd.001"
+cull_mode = 2
+albedo_texture = ExtResource("1_ky7wu")
+roughness = 0.552786
+texture_filter = 0
