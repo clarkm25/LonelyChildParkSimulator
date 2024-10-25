@@ -6,4 +6,4 @@
 resource_name = "Big_Tower.002"
 cull_mode = 2
 albedo_texture = ExtResource("1_st4gq")
-roughness = 0.552786
+roughness = 0.8
