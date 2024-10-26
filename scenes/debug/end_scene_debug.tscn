@@ -104,6 +104,9 @@ collision_mask = 16
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player/Smoothing/Camera3D/SeatDetector"]
 shape = SubResource("BoxShape3D_fuvgw")
 
+[node name="AudioListener3D" type="AudioListener3D" parent="Player"]
+current = true
+
 [node name="TruckContainer" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.410595, -14.55)
 

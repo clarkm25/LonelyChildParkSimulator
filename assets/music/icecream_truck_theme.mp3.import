@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/icecream_truck_theme.mp3-1d5e12069b51985d4a92
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

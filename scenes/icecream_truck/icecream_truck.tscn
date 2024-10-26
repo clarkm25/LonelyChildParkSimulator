@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b1bvttb51stfx"]
+[gd_scene load_steps=26 format=3 uid="uid://b1bvttb51stfx"]
 
 [ext_resource type="Script" path="res://scripts/playground/icecream_truck_seat.gd" id="1_akegc"]
 [ext_resource type="Script" path="res://scenes/icecream_truck/icecream_truck.gd" id="1_pllpx"]
@@ -9,6 +9,10 @@
 [ext_resource type="ArrayMesh" uid="uid://b1yv4ylaowjh2" path="res://assets/models/icecream_truck/wheel_front_right.res" id="6_iq2je"]
 [ext_resource type="ArrayMesh" uid="uid://db0bgbdqffndn" path="res://assets/models/icecream_truck/wheel_rear_left.res" id="7_mebxd"]
 [ext_resource type="ArrayMesh" uid="uid://dxj0qyraygctu" path="res://assets/models/icecream_truck/wheel_rear_right.res" id="8_j6kyx"]
+[ext_resource type="Texture2D" uid="uid://cccrh0kmlp0vv" path="res://assets/materials/metal.png" id="10_aaetb"]
+[ext_resource type="ArrayMesh" uid="uid://bmav1sy4otqv5" path="res://assets/models/icecream_truck/arm.res" id="10_kcw3l"]
+[ext_resource type="PackedScene" uid="uid://b3uhetqjdx6lj" path="res://scenes/icecream_truck/floating_icecream.tscn" id="11_pavlc"]
+[ext_resource type="AudioStream" uid="uid://djxwas7fwv2li" path="res://assets/music/icecream_truck_theme.mp3" id="12_xfvfe"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xqye4"]
 size = Vector3(3, 1, 4.25)
@@ -22,6 +26,15 @@ albedo_color = Color(0, 0, 0, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_s2nmi"]
 material = SubResource("StandardMaterial3D_ni11c")
 size = Vector3(15, 5, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0fik3"]
+albedo_texture = ExtResource("10_aaetb")
+uv1_scale = Vector3(4, 4, 4)
+texture_filter = 0
+
+[sub_resource type="BoxMesh" id="BoxMesh_yo7f5"]
+material = SubResource("StandardMaterial3D_0fik3")
+size = Vector3(15, 5, 0.1)
 
 [sub_resource type="Animation" id="Animation_oa2o4"]
 resource_name = "Drive"
@@ -83,9 +96,151 @@ tracks/4/keys = {
 "values": [Vector3(0, 0, -34.9066), Vector3(0, 0, 0), Vector3(0, 0, 8.72665), Vector3(0, 0, 7.85398)]
 }
 
+[sub_resource type="Animation" id="Animation_2ybgt"]
+resource_name = "The_Bad_Ending"
+length = 0.5
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("IcecreamTruckModel/BadArms:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(3.745, 7.13261, -0.105638), Vector3(3.745, 7.0897, 5.81756)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("IcecreamTruckModel/BadArms:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.0631985, 0, 0), Vector3(0.244748, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_b8qyk"]
+resource_name = "Garage_Door_Retract"
+length = 2.0
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("IcecreamTruckModel/GarageDoor:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0.25, 1.75),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(3.74548, 7.90342, 5.53843), Vector3(3.745, 11.7, 5.538)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("IcecreamTruckModel/GarageDoor:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(0.25, 1.75),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(1, 0.8, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_r6lyg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("IcecreamTruckModel/BadArms:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(3.745, 7.13261, -0.105638)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("IcecreamTruckModel/BadArms:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.477278, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("IcecreamTruckModel/GarageDoor:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(3.74548, 7.90342, 5.53843)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("IcecreamTruckModel/GarageDoor:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_4c3ji"]
+resource_name = "The_Good_Ending"
+length = 1.5
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("IcecreamTruckModel/GoodArm/Arm:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(3.745, 7.13261, -0.105638), Vector3(3.745, 6.58877, 5.23217)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("IcecreamTruckModel/GoodArm/Arm:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(0.75, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.0942478, -1.5708, 2.28464), Vector3(0.0475397, -1.69182, 1.85464)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_h4vls"]
 _data = {
-"Drive": SubResource("Animation_oa2o4")
+"Drive": SubResource("Animation_oa2o4"),
+"Garage_Door_Retract": SubResource("Animation_b8qyk"),
+"RESET": SubResource("Animation_r6lyg"),
+"The_Bad_Ending": SubResource("Animation_2ybgt"),
+"The_Good_Ending": SubResource("Animation_4c3ji")
 }
 
 [node name="IcecreamTruck" type="Node3D"]
@@ -118,7 +273,7 @@ shape = SubResource("BoxShape3D_xqye4")
 script = ExtResource("2_jktyh")
 
 [node name="PlayerPosition" type="Node3D" parent="IcecreamTruckSeat/Smoothing"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.63887, 0.361497, 2.4588)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.748993, 0.62, 2.38563)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="IcecreamTruckSeat"]
 transform = Transform3D(3.2, 0, 0, 0, 3.2, 0, 0, 0, 3.2, 0, 0, 0)
@@ -161,6 +316,33 @@ skeleton = NodePath("../../IcecreamTruckSeat")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.74548, 7.90342, 4.95495)
 mesh = SubResource("BoxMesh_s2nmi")
 
+[node name="GarageDoor" type="MeshInstance3D" parent="IcecreamTruckModel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.74548, 7.90342, 5.53843)
+mesh = SubResource("BoxMesh_yo7f5")
+
+[node name="GoodArm" type="Node3D" parent="IcecreamTruckModel"]
+
+[node name="Arm" type="MeshInstance3D" parent="IcecreamTruckModel/GoodArm"]
+transform = Transform3D(-0.497924, 0.431316, -6.96893, 5.26749, -4.56285, -0.658758, -4.58319, -5.29097, -3.04622e-07, 3.745, 7.13261, -0.105638)
+mesh = ExtResource("10_kcw3l")
+skeleton = NodePath("../..")
+
+[node name="FloatingIcecream" parent="IcecreamTruckModel/GoodArm/Arm" instance=ExtResource("11_pavlc")]
+transform = Transform3D(-0.00163972, 0.13456, -0.0479502, 0.0184437, -0.0473525, -0.133513, -0.141652, -0.00772315, -0.016829, -0.412409, -0.475185, 0.0260315)
+
+[node name="BadArms" type="Node3D" parent="IcecreamTruckModel"]
+transform = Transform3D(1, 0, 0, 0, 0.888249, -0.459363, 0, 0.459363, 0.888249, 3.745, 7.13261, -0.105638)
+
+[node name="Righty" type="MeshInstance3D" parent="IcecreamTruckModel/BadArms"]
+transform = Transform3D(2.80716, -2.43163, 5.93355, -4.4849, 3.88494, 3.71389, -4.58319, -5.29097, -2.59364e-07, -1.75, 0, 0)
+mesh = ExtResource("10_kcw3l")
+skeleton = NodePath("../..")
+
+[node name="Lefty" type="MeshInstance3D" parent="IcecreamTruckModel/BadArms"]
+transform = Transform3D(-2.80379, 2.42872, -5.93634, -4.487, 3.88676, 3.70944, -4.58319, -5.29097, 1.19209e-07, 1.75, 0, 0)
+mesh = ExtResource("10_kcw3l")
+skeleton = NodePath("../..")
+
 [node name="Timer" type="Timer" parent="."]
 wait_time = 10.0
 one_shot = true
@@ -170,5 +352,13 @@ autostart = true
 libraries = {
 "": SubResource("AnimationLibrary_h4vls")
 }
+autoplay = "RESET"
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("12_xfvfe")
+volume_db = -2.0
+max_db = 2.0
+doppler_tracking = 2
+parameters/looping = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
