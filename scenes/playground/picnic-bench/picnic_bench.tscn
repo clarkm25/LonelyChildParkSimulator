@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://b7mq0p3qd5jvy"]
+
+[ext_resource type="Script" path="res://scenes/playground/picnic-bench/picnic_seat.gd" id="1_lvyak"]
+[ext_resource type="Script" path="res://addons/smoothing/smoothing.gd" id="2_ft1gu"]
+[ext_resource type="ArrayMesh" uid="uid://usrmtw58ih3o" path="res://assets/models/tapdig-playground-lowpoly/picnic_table/Cube_017.res" id="3_3rent"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3unr8"]
+size = Vector3(2.3, 1, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0grmc"]
+size = Vector3(2.3, 1, 2)
+
+[node name="PicnicBench" type="Node3D"]
+
+[node name="PicnicSeat" type="RigidBody3D" parent="." node_paths=PackedStringArray("player_seated_location", "hover_detector", "highlight_target")]
+collision_mask = 0
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+script = ExtResource("1_lvyak")
+player_seated_location = NodePath("Smoothing/PlayerPosition")
+hover_detector = NodePath("HoverDetector")
+highlight_target = NodePath("Smoothing/MeshInstance3D")
+glow_outline_thickness = 0.005
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PicnicSeat"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.663573, 0)
+shape = SubResource("BoxShape3D_3unr8")
+
+[node name="HoverDetector" type="Area3D" parent="PicnicSeat"]
+collision_layer = 20
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PicnicSeat/HoverDetector"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0263749, 0.664369, 0)
+shape = SubResource("BoxShape3D_0grmc")
+
+[node name="Smoothing" type="Node3D" parent="PicnicSeat"]
+script = ExtResource("2_ft1gu")
+
+[node name="PlayerPosition" type="Node3D" parent="PicnicSeat/Smoothing"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.578701, 0.87192, 0.713421)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PicnicSeat/Smoothing"]
+transform = Transform3D(100, 0, 0, 0, -4.37114e-06, 100, 0, -100, -4.37114e-06, 0, 0, 0)
+mesh = ExtResource("3_3rent")
