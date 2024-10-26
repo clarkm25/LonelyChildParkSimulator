@@ -36,6 +36,8 @@ func _physics_process(delta):
 func _custom_exit_behavior():
 	# set player position and velocity to that of the swings so you fly off
 	player.global_position = global_position
+	player.happiness +=20
+	
 	player.rotation.x = 0
 	player.rotation.z = 0
 	
