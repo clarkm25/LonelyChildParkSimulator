@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=3 uid="uid://b3uhetqjdx6lj"]
+
+[ext_resource type="PackedScene" uid="uid://bav8275urvgeu" path="res://assets/models/icecream_truck/icecream.glb" id="1_wihwp"]
+
+[sub_resource type="Animation" id="Animation_i4wnj"]
+resource_name = "Floating"
+length = 1.5
+loop_mode = 2
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.5, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_bddou"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vw1vl"]
+_data = {
+"Floating": SubResource("Animation_i4wnj"),
+"RESET": SubResource("Animation_bddou")
+}
+
+[node name="FloatingIcecream" type="Node3D"]
+
+[node name="Icecream" parent="." instance=ExtResource("1_wihwp")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 8, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Icecream"]
+libraries = {
+"": SubResource("AnimationLibrary_vw1vl")
+}
+autoplay = "Floating"
