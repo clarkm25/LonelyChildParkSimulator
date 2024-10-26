@@ -21,12 +21,17 @@ func _ready():
 	# locks mouse to window
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	hud.happiness = happiness
+	$AttentionTimer.start(10)
+
 	
 func _physics_process(delta):
 	hadfun()
 	if sitting:
+		$AttentionTimer.stop()
 		return
-		
+	
+	if $AttentionTimer.is_stopped() && !sitting:
+		$AttentionTimer.start(2)
 	# Add the gravity.
 	if is_on_floor():
 		thrown = false
@@ -93,3 +98,7 @@ func _input(event):
 	if event.is_action_pressed("click"):
 		if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
+
+func _on_attention_timer_timeout() -> void:
+	happiness -= 1
