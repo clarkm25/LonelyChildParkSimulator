@@ -52,13 +52,9 @@ func end_qte(body):
 		else:
 			print("failed")
 			qte_failed.emit()
-	
-	if body.linear_velocity.z >= 0:
-		passed = false
 
-
-func _input(event):
-	if event.is_action_pressed("quicktime"):
-		if active:
-			passed = true
-			end_qte(end_tracker_area)
+#func _input(event):
+	#if event.is_action_pressed("quicktime"):
+		#if active:
+			#passed = true
+			#end_qte(end_tracker_area)

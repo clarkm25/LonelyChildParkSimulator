@@ -1,8 +1,7 @@
-[gd_scene load_steps=17 format=3 uid="uid://yqdpqgs75rfm"]
+[gd_scene load_steps=19 format=3 uid="uid://yqdpqgs75rfm"]
 
 [ext_resource type="PackedScene" uid="uid://bdbf6a6rgn8uv" path="res://scenes/playground/swingset/swings.tscn" id="1_6exlk"]
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_gywt4"]
-[ext_resource type="PackedScene" uid="uid://dqqxlvt6voxc" path="res://scenes/playground/swingset/weight-shift-test.tscn" id="3_6ah67"]
 [ext_resource type="Script" path="res://addons/smoothing/smoothing.gd" id="4_nddgh"]
 [ext_resource type="Environment" uid="uid://ye4runms7608" path="res://assets/materials/lvl_debug_camenvironment.tres" id="4_xpoqp"]
 [ext_resource type="PackedScene" uid="uid://dr38hholcs2sx" path="res://scenes/playground/carousel/carousel.tscn" id="5_gpfqc"]
@@ -48,6 +47,44 @@ size = Vector3(50, 0.5, 50)
 [sub_resource type="BoxShape3D" id="BoxShape3D_fuvgw"]
 size = Vector3(0.01, 0.01, 1)
 
+[sub_resource type="Animation" id="Animation_jwo0j"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Smoothing/Camera3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_qrwct"]
+resource_name = "flip"
+length = 0.5
+step = 0.008
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Smoothing/Camera3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.448),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(6.28319, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jfwwi"]
+_data = {
+"RESET": SubResource("Animation_jwo0j"),
+"flip": SubResource("Animation_qrwct")
+}
+
 [node name="LvlDebug" type="Node3D"]
 
 [node name="Environment" type="Node3D" parent="."]
@@ -71,9 +108,6 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.58397, 0.0629158, -6.60748)
 
 [node name="Swings" parent="Objects" instance=ExtResource("1_6exlk")]
-
-[node name="WeightShiftSwing" parent="Objects" instance=ExtResource("3_6ah67")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.333361, 0, 23.0353)
 
 [node name="Player" type="CharacterBody3D" parent="." groups=["player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.14705, 2, 0)
@@ -106,3 +140,8 @@ collision_mask = 16
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player/Smoothing/Camera3D/SeatDetector"]
 shape = SubResource("BoxShape3D_fuvgw")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
+libraries = {
+"": SubResource("AnimationLibrary_jfwwi")
+}

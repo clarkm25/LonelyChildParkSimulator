@@ -3,9 +3,9 @@
 [ext_resource type="ArrayMesh" uid="uid://bk0ojrtynixyk" path="res://assets/models/playground/swingset/Cylinder_022.res" id="1_vdsso"]
 [ext_resource type="Script" path="res://scripts/playground/swingset_seat.gd" id="2_py7hx"]
 [ext_resource type="ArrayMesh" uid="uid://d08x5xihh2asv" path="res://assets/models/playground/swingset/Plane_009.res" id="3_27e10"]
-[ext_resource type="Material" path="res://assets/materials/glow_shader.tres" id="3_d5ept"]
+[ext_resource type="Material" uid="uid://b7fg3sb5iio2d" path="res://assets/materials/glow_shader.tres" id="3_d5ept"]
 [ext_resource type="Script" path="res://addons/smoothing/smoothing.gd" id="3_i4fko"]
-[ext_resource type="PackedScene" uid="uid://bl22ychxgwf31" path="res://scenes/components/quicktime_event.tscn" id="6_oqrsu"]
+[ext_resource type="PackedScene" uid="uid://bl22ychxgwf31" path="res://scenes/components/quicktime_collision.tscn" id="6_oqrsu"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yi2uq"]
 friction = 0.5
@@ -72,6 +72,7 @@ node_b = NodePath("../SwingsetSeat")
 params/bias = 0.99
 
 [node name="QTE" type="Node3D" parent="."]
+process_mode = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2628, -1.03239)
 
 [node name="Quicktime" parent="QTE" node_paths=PackedStringArray("start_tracker_area", "end_tracker_area") instance=ExtResource("6_oqrsu")]
