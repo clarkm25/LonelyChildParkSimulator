@@ -1,0 +1,125 @@
+[gd_scene load_steps=9 format=3 uid="uid://bhxnnobixovyr"]
+
+[ext_resource type="Script" path="res://scenes/menus/start_menu.gd" id="1_rewo6"]
+[ext_resource type="Texture2D" uid="uid://4pet32cjbayh" path="res://scenes/menus/Cloud Background.png" id="1_xcek6"]
+[ext_resource type="Texture2D" uid="uid://s6l4dixouk1v" path="res://scenes/menus/e02395c5-bb04-4a18-ae8d-e3eb27f5680e.sketchpad (4).png" id="2_8oqit"]
+[ext_resource type="Texture2D" uid="uid://bvx0ukxu6qlyo" path="res://scenes/menus/e02395c5-bb04-4a18-ae8d-e3eb27f5680e.sketchpad (2).png" id="3_y6bm1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xlyoo"]
+bg_color = Color(0.888053, 0.912759, 0.777343, 1)
+
+[sub_resource type="Theme" id="Theme_cnw72"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5vuq4"]
+texture = ExtResource("1_xcek6")
+
+[sub_resource type="FontFile" id="FontFile_xaxpi"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+
+[node name="StartMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rewo6")
+
+[node name="Panel2" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xlyoo")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_cnw72")
+theme_override_styles/panel = SubResource("StyleBoxTexture_5vuq4")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+offset_left = 376.0
+offset_top = 129.0
+offset_right = 776.0
+offset_bottom = 329.0
+texture = ExtResource("3_y6bm1")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -102.0
+offset_right = 100.0
+offset_bottom = 102.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 67
+text = "LCPS"
+horizontal_alignment = 1
+
+[node name="StartButton" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("2_8oqit")
+
+[node name="S" type="Label" parent="VBoxContainer/StartButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.5
+offset_top = -12.0
+offset_right = 25.5
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "START"
+
+[node name="EndButton" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("2_8oqit")
+
+[node name="Label" type="Label" parent="VBoxContainer/EndButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontFile_xaxpi")
+text = "EXIT"
+
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/EndButton" to="." method="_on_end_button_pressed"]
