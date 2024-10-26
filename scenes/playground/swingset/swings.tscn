@@ -1,17 +1,18 @@
-[gd_scene load_steps=13 format=3 uid="uid://bdbf6a6rgn8uv"]
+[gd_scene load_steps=12 format=3 uid="uid://bdbf6a6rgn8uv"]
 
 [ext_resource type="ArrayMesh" uid="uid://bk0ojrtynixyk" path="res://assets/models/playground/swingset/Cylinder_022.res" id="1_vdsso"]
 [ext_resource type="Script" path="res://scripts/playground/swingset_seat.gd" id="2_py7hx"]
 [ext_resource type="ArrayMesh" uid="uid://d08x5xihh2asv" path="res://assets/models/playground/swingset/Plane_009.res" id="3_27e10"]
-[ext_resource type="Material" uid="uid://b7fg3sb5iio2d" path="res://assets/materials/glow_shader.tres" id="3_d5ept"]
+[ext_resource type="Material" path="res://assets/materials/glow_shader.tres" id="3_d5ept"]
 [ext_resource type="Script" path="res://addons/smoothing/smoothing.gd" id="3_i4fko"]
-[ext_resource type="PackedScene" uid="uid://bnwvqgijnywa7" path="res://scenes/components/quicktime_event.tscn" id="6_oqrsu"]
+[ext_resource type="PackedScene" uid="uid://bl22ychxgwf31" path="res://scenes/components/quicktime_event.tscn" id="6_oqrsu"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yi2uq"]
 friction = 0.5
 bounce = 0.5
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ger1o"]
+size = Vector3(0.830078, 0.248047, 0.361328)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nw8l7"]
 
@@ -19,11 +20,8 @@ bounce = 0.5
 action = &"quicktime"
 event_index = 0
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_ctui8"]
-radius = 0.25
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_lxkap"]
-radius = 0.25
+[sub_resource type="BoxShape3D" id="BoxShape3D_d7pv5"]
+size = Vector3(0.001, 1, 0.001)
 
 [node name="Swings" type="Node3D"]
 
@@ -41,7 +39,7 @@ hover_detector = NodePath("HoverDetector")
 highlight_target = NodePath("Smoothing/MeshInstance3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SwingsetSeat"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.073392, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.136949, 0)
 shape = SubResource("BoxShape3D_ger1o")
 
 [node name="HoverDetector" type="Area3D" parent="SwingsetSeat"]
@@ -55,14 +53,14 @@ shape = SubResource("BoxShape3D_nw8l7")
 script = ExtResource("3_i4fko")
 flags = 15
 
-[node name="PlayerPosition" type="Node3D" parent="SwingsetSeat/Smoothing"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.528561, 0)
-
 [node name="MeshInstance3D" type="MeshInstance3D" parent="SwingsetSeat/Smoothing"]
 physics_interpolation_mode = 1
 transform = Transform3D(-5.59506e-06, -128, -5.59506e-06, 0, -5.59506e-06, 128, -128, 5.59506e-06, 2.44568e-13, 0, 2.6, 0)
 material_overlay = ExtResource("3_d5ept")
 mesh = ExtResource("3_27e10")
+
+[node name="PlayerPosition" type="Node3D" parent="SwingsetSeat/Smoothing"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.528561, 0)
 
 [node name="Swingtop" type="MeshInstance3D" parent="."]
 transform = Transform3D(-2.62268e-07, 0, 6, 0, 6, 0, -6, 0, -2.62268e-07, 0, 0, 0)
@@ -74,7 +72,6 @@ node_b = NodePath("../SwingsetSeat")
 params/bias = 0.99
 
 [node name="QTE" type="Node3D" parent="."]
-process_mode = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2628, -1.03239)
 
 [node name="Quicktime" parent="QTE" node_paths=PackedStringArray("start_tracker_area", "end_tracker_area") instance=ExtResource("6_oqrsu")]
@@ -84,19 +81,17 @@ action_to_press = SubResource("InputEventAction_3cud8")
 timescale = 0.25
 
 [node name="QuicktimeStartTrigger" type="Area3D" parent="QTE"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.505)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.66, 1.41283)
 collision_layer = 8
 collision_mask = 29
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="QTE/QuicktimeStartTrigger"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.397743, -1.04787)
-shape = SubResource("SphereShape3D_ctui8")
+shape = SubResource("BoxShape3D_d7pv5")
 
 [node name="QuicktimeEndTrigger" type="Area3D" parent="QTE"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.234)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.608959, 0.58254)
 collision_layer = 8
 collision_mask = 29
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="QTE/QuicktimeEndTrigger"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.572035, 1.26473)
-shape = SubResource("SphereShape3D_lxkap")
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="QTE/QuicktimeEndTrigger"]
+shape = SubResource("BoxShape3D_d7pv5")

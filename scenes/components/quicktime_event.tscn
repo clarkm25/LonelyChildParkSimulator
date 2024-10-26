@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bnwvqgijnywa7"]
+[gd_scene load_steps=5 format=3 uid="uid://bl22ychxgwf31"]
 
 [ext_resource type="Script" path="res://scripts/components/ui/quicktime_event.gd" id="1_ke1mw"]
 
@@ -6,6 +6,7 @@
 
 [sub_resource type="SystemFont" id="SystemFont_kqf7n"]
 font_names = PackedStringArray("Gill Sans")
+subpixel_positioning = 0
 
 [sub_resource type="LabelSettings" id="LabelSettings_x1hu5"]
 font = SubResource("SystemFont_kqf7n")
