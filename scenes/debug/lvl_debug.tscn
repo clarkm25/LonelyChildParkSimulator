@@ -42,10 +42,10 @@ size = Vector3(50, 0.5, 50)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wyxm6"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_4wag4"]
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_fuvgw"]
 size = Vector3(0.01, 0.01, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_4wag4"]
 
 [sub_resource type="Animation" id="Animation_jwo0j"]
 length = 0.001
@@ -119,9 +119,6 @@ script = ExtResource("1_gywt4")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
 shape = SubResource("CapsuleShape3D_wyxm6")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
-mesh = SubResource("CapsuleMesh_4wag4")
-
 [node name="Smoothing" type="Node3D" parent="Player"]
 transform = Transform3D(0.999999, 0.000802873, -0.000810099, -0.000802031, 0.999999, 0.00102896, 0.000810933, -0.00102831, 0.999999, 0, 0, 0)
 script = ExtResource("4_nddgh")
@@ -140,6 +137,11 @@ collision_mask = 16
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player/Smoothing/Camera3D/SeatDetector"]
 shape = SubResource("BoxShape3D_fuvgw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player/Smoothing"]
+transform = Transform3D(1, -0.00080204, 0.000810925, 0.000802865, 0.999999, -0.00102831, -0.000810108, 0.00102896, 0.999999, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_4wag4")
+skeleton = NodePath("../..")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
 libraries = {

@@ -1,11 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://bdbf6a6rgn8uv"]
+[gd_scene load_steps=10 format=3 uid="uid://bdbf6a6rgn8uv"]
 
 [ext_resource type="ArrayMesh" uid="uid://bk0ojrtynixyk" path="res://assets/models/playground/swingset/Cylinder_022.res" id="1_vdsso"]
 [ext_resource type="Script" path="res://scripts/playground/swingset_seat.gd" id="2_py7hx"]
 [ext_resource type="ArrayMesh" uid="uid://d08x5xihh2asv" path="res://assets/models/playground/swingset/Plane_009.res" id="3_27e10"]
-[ext_resource type="Material" uid="uid://b7fg3sb5iio2d" path="res://assets/materials/glow_shader.tres" id="3_d5ept"]
+[ext_resource type="Material" path="res://assets/materials/glow_shader.tres" id="3_d5ept"]
 [ext_resource type="Script" path="res://addons/smoothing/smoothing.gd" id="3_i4fko"]
-[ext_resource type="PackedScene" uid="uid://bl22ychxgwf31" path="res://scenes/components/quicktime_collision.tscn" id="6_oqrsu"]
+[ext_resource type="Script" path="res://scenes/playground/swingset/qte.gd" id="6_qfivr"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yi2uq"]
 friction = 0.5
@@ -16,16 +16,9 @@ size = Vector3(0.830078, 0.248047, 0.361328)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nw8l7"]
 
-[sub_resource type="InputEventAction" id="InputEventAction_3cud8"]
-action = &"quicktime"
-event_index = 0
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_d7pv5"]
-size = Vector3(0.001, 1, 0.001)
-
 [node name="Swings" type="Node3D"]
 
-[node name="SwingsetSeat" type="RigidBody3D" parent="." node_paths=PackedStringArray("player_seated_location", "hover_detector", "highlight_target")]
+[node name="SwingsetSeat" type="RigidBody3D" parent="." node_paths=PackedStringArray("player_seated_location", "hover_detector", "highlight_target") groups=["swing"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 collision_layer = 16
 collision_mask = 16
@@ -69,30 +62,13 @@ mesh = ExtResource("1_vdsso")
 [node name="HingeJoint3D" type="HingeJoint3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 3.0841, 0)
 node_b = NodePath("../SwingsetSeat")
-params/bias = 0.99
 
 [node name="QTE" type="Node3D" parent="."]
-process_mode = 4
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2628, -1.03239)
+script = ExtResource("6_qfivr")
 
-[node name="Quicktime" parent="QTE" node_paths=PackedStringArray("start_tracker_area", "end_tracker_area") instance=ExtResource("6_oqrsu")]
-start_tracker_area = NodePath("../QuicktimeStartTrigger")
-end_tracker_area = NodePath("../QuicktimeEndTrigger")
-action_to_press = SubResource("InputEventAction_3cud8")
-timescale = 0.25
+[node name="CenterChecker" type="RayCast3D" parent="QTE"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.000914335, 0)
+target_position = Vector3(0, 1, 0)
+collision_mask = 16
 
-[node name="QuicktimeStartTrigger" type="Area3D" parent="QTE"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.66, 1.41283)
-collision_layer = 8
-collision_mask = 29
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="QTE/QuicktimeStartTrigger"]
-shape = SubResource("BoxShape3D_d7pv5")
-
-[node name="QuicktimeEndTrigger" type="Area3D" parent="QTE"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.608959, 0.58254)
-collision_layer = 8
-collision_mask = 29
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="QTE/QuicktimeEndTrigger"]
-shape = SubResource("BoxShape3D_d7pv5")
+[connection signal="end" from="QTE" to="SwingsetSeat" method="_on_qte_end"]
