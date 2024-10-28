@@ -3,23 +3,24 @@
 [ext_resource type="ArrayMesh" uid="uid://bk0ojrtynixyk" path="res://assets/models/tapdig-playground-lowpoly/swingset/Cylinder_022.res" id="1_vdsso"]
 [ext_resource type="Script" path="res://scripts/playground/swingset_seat.gd" id="2_py7hx"]
 [ext_resource type="ArrayMesh" uid="uid://d08x5xihh2asv" path="res://assets/models/tapdig-playground-lowpoly/swingset/Plane_009.res" id="3_27e10"]
-[ext_resource type="Material" uid="uid://b7fg3sb5iio2d" path="res://assets/materials/glow_shader.tres" id="3_d5ept"]
 [ext_resource type="Script" path="res://addons/smoothing/smoothing.gd" id="3_i4fko"]
+[ext_resource type="Script" path="res://scenes/playground/swingset/qte.gd" id="6_qfivr"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yi2uq"]
 friction = 0.5
 bounce = 0.5
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ger1o"]
+size = Vector3(0.830078, 0.248047, 0.361328)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nw8l7"]
 
 [node name="Swings" type="Node3D"]
 
-[node name="SwingsetSeat" type="RigidBody3D" parent="." node_paths=PackedStringArray("player_seated_location", "hover_detector", "highlight_target")]
+[node name="SwingsetSeat" type="RigidBody3D" parent="." node_paths=PackedStringArray("player_seated_location", "hover_detector", "highlight_target") groups=["swing"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-collision_layer = 8
-collision_mask = 0
+collision_layer = 16
+collision_mask = 16
 mass = 20.0
 physics_material_override = SubResource("PhysicsMaterial_yi2uq")
 center_of_mass_mode = 1
@@ -30,7 +31,7 @@ hover_detector = NodePath("HoverDetector")
 highlight_target = NodePath("Smoothing/MeshInstance3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SwingsetSeat"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.073392, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.136949, 0)
 shape = SubResource("BoxShape3D_ger1o")
 
 [node name="HoverDetector" type="Area3D" parent="SwingsetSeat"]
@@ -44,14 +45,13 @@ shape = SubResource("BoxShape3D_nw8l7")
 script = ExtResource("3_i4fko")
 flags = 15
 
-[node name="PlayerPosition" type="Node3D" parent="SwingsetSeat/Smoothing"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.528561, 0)
-
 [node name="MeshInstance3D" type="MeshInstance3D" parent="SwingsetSeat/Smoothing"]
 physics_interpolation_mode = 1
 transform = Transform3D(-5.59506e-06, -128, -5.59506e-06, 0, -5.59506e-06, 128, -128, 5.59506e-06, 2.44568e-13, 0, 2.6, 0)
-material_overlay = ExtResource("3_d5ept")
 mesh = ExtResource("3_27e10")
+
+[node name="PlayerPosition" type="Node3D" parent="SwingsetSeat/Smoothing"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.528561, 0)
 
 [node name="Swingtop" type="MeshInstance3D" parent="."]
 transform = Transform3D(-2.62268e-07, 0, 6, 0, 6, 0, -6, 0, -2.62268e-07, 0, 0, 0)
@@ -60,4 +60,13 @@ mesh = ExtResource("1_vdsso")
 [node name="HingeJoint3D" type="HingeJoint3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 3.0841, 0)
 node_b = NodePath("../SwingsetSeat")
-params/bias = 0.99
+
+[node name="QTE" type="Node3D" parent="."]
+script = ExtResource("6_qfivr")
+
+[node name="CenterChecker" type="RayCast3D" parent="QTE"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.000914335, 0)
+target_position = Vector3(0, 1, 0)
+collision_mask = 16
+
+[connection signal="end" from="QTE" to="SwingsetSeat" method="_on_qte_end"]

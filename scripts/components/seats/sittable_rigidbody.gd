@@ -32,6 +32,8 @@ var player : CharacterBody3D
 var player_cam_pos : Vector3
 
 var debug := false
+
+var QTE : Node3D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player = get_tree().get_first_node_in_group("player")
@@ -41,21 +43,22 @@ func _ready():
 	hover_detector.connect("area_entered", _on_hover_detector_area_entered)
 	hover_detector.connect("area_exited", _on_hover_detector_area_exited)
 	
+	QTE = get_node_or_null("QTE")
 	#highlight_target.material_overlay = glow_shader
 
 func _on_hover_detector_area_entered(area):
 	if !entered:
-		highlight_target.set_instance_shader_parameter("thickness", glow_outline_thickness)
+		highlight_target.get_active_material(0).next_pass.set_shader_parameter("outline_color", Color.WHITE)
 		enterable = true
 
 func _on_hover_detector_area_exited(area):
-	highlight_target.set_instance_shader_parameter("thickness", 0)
+	highlight_target.get_active_material(0).next_pass.set_shader_parameter("outline_color", Color.TRANSPARENT)
 	enterable = false
 	
 func _input(event):
 	if event.is_action_pressed("interact"):
 		if enterable:
-			highlight_target.set_instance_shader_parameter("thickness", 0)
+			highlight_target.get_active_material(0).next_pass.set_shader_parameter("outline_color", Color.TRANSPARENT)
 			enterable = false
 			entered = true
 			_toggle_sit(true)
@@ -93,6 +96,8 @@ func _toggle_sit(state : bool):
 		player.left_cam_limit = 180
 		player.right_cam_limit = 180
 		player.reparent(get_tree().root)
+		player.rotation.x = 0
+		player.rotation.z = 0
 		
 		if !override_exit_behavior:
 			player.position = original_player_pos

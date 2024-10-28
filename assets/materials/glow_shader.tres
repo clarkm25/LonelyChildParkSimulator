@@ -6,3 +6,4 @@
 render_priority = 0
 shader = ExtResource("1_x6lnp")
 shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/thickness = 1.0

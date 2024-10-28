@@ -1,0 +1,105 @@
+[gd_scene load_steps=16 format=3 uid="uid://yqdpqgs75rfm"]
+
+[ext_resource type="PackedScene" uid="uid://bdbf6a6rgn8uv" path="res://scenes/playground/swingset/swings.tscn" id="1_6exlk"]
+[ext_resource type="Script" path="res://scripts/player/player.gd" id="1_gywt4"]
+[ext_resource type="Script" path="res://addons/smoothing/smoothing.gd" id="4_nddgh"]
+[ext_resource type="Environment" uid="uid://ye4runms7608" path="res://assets/materials/lvl_debug_camenvironment.tres" id="4_xpoqp"]
+[ext_resource type="PackedScene" uid="uid://dr38hholcs2sx" path="res://scenes/playground/carousel/carousel.tscn" id="5_gpfqc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_afqvf"]
+size = Vector3(50, 0.5, 50)
+
+[sub_resource type="Gradient" id="Gradient_4klx6"]
+offsets = PackedFloat32Array(0, 0.992063)
+colors = PackedColorArray(0.988235, 0.792157, 0.6, 1, 0.442456, 0.302736, 0.172932, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_1xrp7"]
+noise_type = 2
+frequency = 0.0689
+cellular_return_type = 0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_418fa"]
+seamless = true
+seamless_blend_skirt = 0.283
+normalize = false
+color_ramp = SubResource("Gradient_4klx6")
+noise = SubResource("FastNoiseLite_1xrp7")
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_d2wsn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t2alp"]
+albedo_texture = SubResource("NoiseTexture2D_418fa")
+clearcoat = 0.0
+clearcoat_roughness = 1.0
+heightmap_scale = -5.198
+heightmap_texture = SubResource("NoiseTexture2D_d2wsn")
+uv1_scale = Vector3(64, 48, 64)
+texture_filter = 1
+
+[sub_resource type="BoxMesh" id="BoxMesh_0rpeh"]
+material = SubResource("StandardMaterial3D_t2alp")
+size = Vector3(50, 0.5, 50)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wyxm6"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_4wag4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fuvgw"]
+size = Vector3(0.01, 0.01, 1)
+
+[node name="LvlDebug" type="Node3D"]
+
+[node name="Environment" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+
+[node name="Platform" type="StaticBody3D" parent="Environment"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Platform"]
+shape = SubResource("BoxShape3D_afqvf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/Platform"]
+mesh = SubResource("BoxMesh_0rpeh")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, -0.439939, 0.898027, 0, -0.898027, -0.439939, 0, 20, 0)
+shadow_enabled = true
+
+[node name="Objects" type="Node3D" parent="."]
+
+[node name="Carousel" parent="Objects" instance=ExtResource("5_gpfqc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.58397, 4.76837e-07, -6.60748)
+
+[node name="Swings" parent="Objects" instance=ExtResource("1_6exlk")]
+
+[node name="Player" type="CharacterBody3D" parent="." groups=["player"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.14705, 2, 0)
+collision_layer = 2
+collision_mask = 7
+platform_on_leave = 1
+platform_floor_layers = 4294967265
+script = ExtResource("1_gywt4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+shape = SubResource("CapsuleShape3D_wyxm6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
+mesh = SubResource("CapsuleMesh_4wag4")
+
+[node name="Smoothing" type="Node3D" parent="Player"]
+transform = Transform3D(0.999999, 0.000802873, -0.000810099, -0.000802031, 0.999999, 0.00102896, 0.000810933, -0.00102831, 0.999999, 0, 0, 0)
+script = ExtResource("4_nddgh")
+
+[node name="Camera3D" type="Camera3D" parent="Player/Smoothing"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+cull_mask = 1048573
+environment = ExtResource("4_xpoqp")
+current = true
+fov = 100.0
+
+[node name="SeatDetector" type="Area3D" parent="Player/Smoothing/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+collision_layer = 2
+collision_mask = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player/Smoothing/Camera3D/SeatDetector"]
+shape = SubResource("BoxShape3D_fuvgw")

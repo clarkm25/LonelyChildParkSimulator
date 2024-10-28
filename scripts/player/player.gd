@@ -11,10 +11,11 @@ const JUMP_VELOCITY = 4.5
 @onready var camera = $Smoothing/Camera3D
 @onready var smoothing = $Smoothing
 
+signal height_reached(height)
 var left_cam_limit = 180
 var right_cam_limit = 180
 var thrown := false
-
+var falling := false
 var sitting : bool = false
 
 func _ready():
@@ -35,6 +36,7 @@ func _physics_process(delta):
 	# Add the gravity.
 	if is_on_floor():
 		thrown = false
+		falling = false
 	else:
 		velocity += get_gravity() * delta
 		
@@ -62,6 +64,11 @@ func _physics_process(delta):
 	
 	move_and_slide()
 	
+	if thrown:
+		if velocity.y < 0 and !falling:
+			falling = true
+			height_reached.emit(global_position.y)
+			print(global_position.y)
 func hadfun():
 	if happiness != hud.happiness:
 		if happiness > hud.happiness:

@@ -29,10 +29,13 @@ func _toggle_sit(state : bool):
 		player.position = Vector3.ZERO
 		
 		$"../AnimationPlayer".play("Garage_Door_Retract")
-		#if player.happy:
-		#$"../AnimationPlayer".queue("The_Good_Ending")
-		#else:
-		$"../AnimationPlayer".queue("The_Bad_Ending")
+		if player.happiness >= 70:
+			$"../AnimationPlayer".queue("The_Good_Ending")
+		else:
+			$"../AnimationPlayer".queue("The_Bad_Ending")
 	
 	elif state == false:
 		return
+
+func close_game():
+	get_tree().quit()

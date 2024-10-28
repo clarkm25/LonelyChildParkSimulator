@@ -204,10 +204,24 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector3(0.0631985, 0, 0), Vector3(0.244748, 0, 0)]
 }
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("IcecreamTruckSeat")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"close_game"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_4c3ji"]
 resource_name = "The_Good_Ending"
-length = 1.5
+length = 2.0
 step = 0.25
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -232,6 +246,20 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(0.0942478, -1.5708, 2.28464), Vector3(0.0475397, -1.69182, 1.85464)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("IcecreamTruckSeat")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"close_game"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_h4vls"]
