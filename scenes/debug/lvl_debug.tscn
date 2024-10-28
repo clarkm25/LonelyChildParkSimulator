@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://clj3mihr2nsgv" path="res://scenes/world-items/skytime.tscn" id="2_1cihy"]
 [ext_resource type="PackedScene" uid="uid://c62hnifxmw3w2" path="res://scenes/player/player.tscn" id="3_n2qx8"]
 [ext_resource type="PackedScene" uid="uid://dr38hholcs2sx" path="res://scenes/playground/carousel/carousel.tscn" id="5_gpfqc"]
+[ext_resource type="PackedScene" uid="uid://cwihc6jexi1pp" path="res://scenes/UI/HUD.tscn" id="5_xtf50"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_afqvf"]
 size = Vector3(50, 0.5, 50)
@@ -37,3 +38,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.58397, 4.76837e-07, -6.6074
 [node name="Swings" parent="Objects" instance=ExtResource("1_6exlk")]
 
 [node name="Player" parent="." instance=ExtResource("3_n2qx8")]
+
+[node name="hud" parent="." instance=ExtResource("5_xtf50")]
+unique_name_in_owner = true
