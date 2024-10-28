@@ -1,15 +1,14 @@
-[gd_scene load_steps=26 format=3 uid="uid://b1bvttb51stfx"]
+[gd_scene load_steps=27 format=3 uid="uid://b1bvttb51stfx"]
 
 [ext_resource type="Script" path="res://scripts/playground/icecream_truck_seat.gd" id="1_akegc"]
 [ext_resource type="Script" path="res://scenes/icecream_truck/icecream_truck.gd" id="1_pllpx"]
 [ext_resource type="Script" path="res://addons/smoothing/smoothing.gd" id="2_jktyh"]
-[ext_resource type="Material" uid="uid://b7fg3sb5iio2d" path="res://assets/materials/glow_shader.tres" id="3_3qevy"]
 [ext_resource type="ArrayMesh" uid="uid://dq3d3uo4a0fax" path="res://assets/models/icecream_truck/body.res" id="4_hhack"]
 [ext_resource type="ArrayMesh" uid="uid://djivqsdv6gq5w" path="res://assets/models/icecream_truck/wheel_front_left.res" id="5_t7y3k"]
 [ext_resource type="ArrayMesh" uid="uid://b1yv4ylaowjh2" path="res://assets/models/icecream_truck/wheel_front_right.res" id="6_iq2je"]
 [ext_resource type="ArrayMesh" uid="uid://db0bgbdqffndn" path="res://assets/models/icecream_truck/wheel_rear_left.res" id="7_mebxd"]
 [ext_resource type="ArrayMesh" uid="uid://dxj0qyraygctu" path="res://assets/models/icecream_truck/wheel_rear_right.res" id="8_j6kyx"]
-[ext_resource type="Texture2D" uid="uid://cccrh0kmlp0vv" path="res://assets/materials/metal.png" id="10_aaetb"]
+[ext_resource type="Shader" path="res://assets/materials/outline3D.gdshader" id="10_4akp0"]
 [ext_resource type="ArrayMesh" uid="uid://bmav1sy4otqv5" path="res://assets/models/icecream_truck/arm.res" id="10_kcw3l"]
 [ext_resource type="PackedScene" uid="uid://b3uhetqjdx6lj" path="res://scenes/icecream_truck/floating_icecream.tscn" id="11_pavlc"]
 [ext_resource type="AudioStream" uid="uid://djxwas7fwv2li" path="res://assets/music/icecream_truck_theme.mp3" id="12_xfvfe"]
@@ -27,8 +26,19 @@ albedo_color = Color(0, 0, 0, 1)
 material = SubResource("StandardMaterial3D_ni11c")
 size = Vector3(15, 5, 1)
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ucfld"]
+load_path = "res://.godot/imported/metal.png-10ed824db027b14efbccf1e6fa63d7a5.ctex"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eei12"]
+render_priority = 0
+shader = ExtResource("10_4akp0")
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/thickness = 4.0
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0fik3"]
-albedo_texture = ExtResource("10_aaetb")
+next_pass = SubResource("ShaderMaterial_eei12")
+albedo_color = Color(1, 1, 1, 0)
+albedo_texture = SubResource("CompressedTexture2D_ucfld")
 uv1_scale = Vector3(4, 4, 4)
 texture_filter = 0
 
@@ -312,31 +322,26 @@ transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
 
 [node name="Body" type="MeshInstance3D" parent="IcecreamTruckModel"]
 transform = Transform3D(16, 0, 0, 0, 16, 0, 0, 0, 16, 0, 0, 0)
-material_overlay = ExtResource("3_3qevy")
 mesh = ExtResource("4_hhack")
 skeleton = NodePath("../../IcecreamTruckSeat")
 
 [node name="WheelFrontLeft" type="MeshInstance3D" parent="IcecreamTruckModel"]
 transform = Transform3D(-15.035, -5.47256, 0, 5.47256, -15.035, 0, 0, 0, 16, -13.791, 0, 4.91755)
-material_overlay = ExtResource("3_3qevy")
 mesh = ExtResource("5_t7y3k")
 skeleton = NodePath("../../IcecreamTruckSeat")
 
 [node name="WheelFrontRight" type="MeshInstance3D" parent="IcecreamTruckModel"]
 transform = Transform3D(-15.035, -5.47256, 0, 5.47256, -15.035, 0, 0, 0, 16, -13.791, 0, -4.918)
-material_overlay = ExtResource("3_3qevy")
 mesh = ExtResource("6_iq2je")
 skeleton = NodePath("../../IcecreamTruckSeat")
 
 [node name="WheelRearLeft" type="MeshInstance3D" parent="IcecreamTruckModel"]
 transform = Transform3D(-15.035, -5.47256, 0, 5.47256, -15.035, 0, 0, 0, 16, 12.491, 0, 5.754)
-material_overlay = ExtResource("3_3qevy")
 mesh = ExtResource("7_mebxd")
 skeleton = NodePath("../../IcecreamTruckSeat")
 
 [node name="WheelRearRight" type="MeshInstance3D" parent="IcecreamTruckModel"]
 transform = Transform3D(-15.035, -5.47256, 0, 5.47256, -15.035, 0, 0, 0, 16, 12.4908, 0, -5.75444)
-material_overlay = ExtResource("3_3qevy")
 mesh = ExtResource("8_j6kyx")
 skeleton = NodePath("../../IcecreamTruckSeat")
 

@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://c4q3m6hlc44yr"]
 
-[ext_resource type="ArrayMesh" uid="uid://c4v32r07r4sx7" path="res://assets/models/tapdig-playground-lowpoly/seesaw/Plane_011.res" id="1_h58rl"]
+[ext_resource type="ArrayMesh" uid="uid://dmoq8pfpv48gm" path="res://assets/models/tapdig-playground-lowpoly/seesaw/Plane_011.res" id="1_h58rl"]
 [ext_resource type="Script" path="res://scripts/playground/seesaw_seat.gd" id="2_6n6dp"]
-[ext_resource type="ArrayMesh" uid="uid://tps55iwf544k" path="res://assets/models/tapdig-playground-lowpoly/seesaw/Cylinder_024.res" id="2_rvh5y"]
+[ext_resource type="ArrayMesh" uid="uid://b3ac6wfyxxrt5" path="res://assets/models/tapdig-playground-lowpoly/seesaw/Cylinder_024.res" id="2_rvh5y"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pta1j"]
 radius = 0.196005
