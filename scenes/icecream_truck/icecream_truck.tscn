@@ -96,35 +96,6 @@ tracks/4/keys = {
 "values": [Vector3(0, 0, -34.9066), Vector3(0, 0, 0), Vector3(0, 0, 8.72665), Vector3(0, 0, 7.85398)]
 }
 
-[sub_resource type="Animation" id="Animation_2ybgt"]
-resource_name = "The_Bad_Ending"
-length = 0.5
-step = 0.25
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("IcecreamTruckModel/BadArms:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = false
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(3.745, 7.13261, -0.105638), Vector3(3.745, 7.0897, 5.81756)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("IcecreamTruckModel/BadArms:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = false
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0.0631985, 0, 0), Vector3(0.244748, 0, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_b8qyk"]
 resource_name = "Garage_Door_Retract"
 length = 2.0
@@ -205,9 +176,52 @@ tracks/3/keys = {
 "values": [Vector3(1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_2ybgt"]
+resource_name = "The_Bad_Ending"
+length = 0.5
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("IcecreamTruckModel/BadArms:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(3.745, 7.13261, -0.105638), Vector3(3.745, 7.0897, 5.81756)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("IcecreamTruckModel/BadArms:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.0631985, 0, 0), Vector3(0.244748, 0, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("IcecreamTruckSeat")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"close_game"
+}]
+}
+
 [sub_resource type="Animation" id="Animation_4c3ji"]
 resource_name = "The_Good_Ending"
-length = 1.5
+length = 2.0
 step = 0.25
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -232,6 +246,20 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(0.0942478, -1.5708, 2.28464), Vector3(0.0475397, -1.69182, 1.85464)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("IcecreamTruckSeat")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"close_game"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_h4vls"]
@@ -323,7 +351,7 @@ mesh = SubResource("BoxMesh_yo7f5")
 [node name="GoodArm" type="Node3D" parent="IcecreamTruckModel"]
 
 [node name="Arm" type="MeshInstance3D" parent="IcecreamTruckModel/GoodArm"]
-transform = Transform3D(-0.497924, 0.431316, -6.96893, 5.26749, -4.56285, -0.658758, -4.58319, -5.29097, -3.04622e-07, 3.745, 7.13261, -0.105638)
+transform = Transform3D(-0.497906, 0.431337, -6.96893, 5.26747, -4.56287, -0.658758, -4.58321, -5.29095, -2.52275e-05, 3.745, 7.13261, -0.105638)
 mesh = ExtResource("10_kcw3l")
 skeleton = NodePath("../..")
 
