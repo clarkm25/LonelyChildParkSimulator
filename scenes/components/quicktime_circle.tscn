@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://di1endmx6p3nw"]
+[gd_scene load_steps=9 format=3 uid="uid://c8do7fg7cri2r"]
 
 [ext_resource type="Script" path="res://scripts/components/ui/quicktime_circle.gd" id="1_r4k5d"]
 [ext_resource type="Texture2D" uid="uid://1lfs0q5epc8g" path="res://assets/ui/circles/button_round_line.svg" id="2_n78rb"]

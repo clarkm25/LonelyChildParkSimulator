@@ -9,6 +9,7 @@ var can_flip := true
 
 func _ready():
 	super()
+	player.height_reached.connect(peaked)
 
 func _toggle_sit(state : bool):
 	super(state)
@@ -16,7 +17,6 @@ func _toggle_sit(state : bool):
 		qte.play()
 	if state == false:
 		qte.stop()
-		var player_height = player.position.y
 
 func _physics_process(delta):
 	if entered:
@@ -67,3 +67,7 @@ func _is_velocity_direction_flipped() -> bool:
 func push(direction, score):
 	var forward = transform.basis.z.normalized()
 	apply_central_impulse(forward * direction * score)
+	
+func peaked(height):
+	#TODO: add harry's function for happiness adding
+	pass

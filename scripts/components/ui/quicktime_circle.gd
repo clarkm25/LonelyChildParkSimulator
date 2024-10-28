@@ -8,7 +8,7 @@ signal qte_start
 signal qte_end
 
 func _input(event):
-	if event.is_action_pressed("quicktime"):
+	if event.is_action_pressed("quicktime") and $Timer.is_stopped():
 		$Control.hide()
 		$AnimationPlayer.pause()
 		get_parent().end.emit(score)
