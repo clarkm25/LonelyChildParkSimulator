@@ -110,7 +110,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.58397, 0.0629158, -6.60748)
 [node name="Swings" parent="Objects" instance=ExtResource("1_6exlk")]
 
 [node name="Player" type="CharacterBody3D" parent="." groups=["player"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.14705, 2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0549524, 5.40277, -4.10519)
 collision_layer = 2
 collision_mask = 7
 platform_floor_layers = 4294967264

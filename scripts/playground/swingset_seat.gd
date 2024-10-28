@@ -6,20 +6,20 @@ var direction := 0
 
 var z_dir = -1
 var can_flip := true
+
 func _ready():
 	super()
 
+func _toggle_sit(state : bool):
+	super(state)
+	if state == true and !qte.playing:
+		qte.play()
+	if state == false:
+		qte.stop()
+		var player_height = player.position.y
+
 func _physics_process(delta):
 	if entered:
-		if Input.is_action_just_pressed("move_forward"):
-			push(-1, 10)
-		elif Input.is_action_just_pressed("move_back"):
-			push(1, 10)
-		#
-		#if linear_velocity.is_zero_approx() and !qte.playing:
-			#qte.play()
-			#
-		
 		var raycast_collision = $"../QTE/CenterChecker".get_collider()
 		if raycast_collision:
 			if linear_velocity.z > 0:
@@ -29,8 +29,10 @@ func _physics_process(delta):
 			elif linear_velocity.z == 0:
 				direction = 0
 			can_flip = true
+			
 		if _is_velocity_direction_flipped() and !qte.playing:
 			qte.play()
+			
 func _custom_exit_behavior():
 	# set player position and velocity to that of the swings so you fly off
 	player.global_position = global_position
@@ -49,6 +51,8 @@ func _on_qte_end(points: Variant) -> void:
 	push(z_dir, points/3)
 	
 func _is_velocity_direction_flipped() -> bool:
+	# checks if current direction matches stashed direction; if not, set direction to opposite
+	# and return true for direction being flipped
 	if can_flip:
 		if angular_velocity.x < 0 and z_dir != 1:
 			z_dir = 1

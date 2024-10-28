@@ -3,7 +3,7 @@
 [ext_resource type="ArrayMesh" uid="uid://bk0ojrtynixyk" path="res://assets/models/playground/swingset/Cylinder_022.res" id="1_vdsso"]
 [ext_resource type="Script" path="res://scripts/playground/swingset_seat.gd" id="2_py7hx"]
 [ext_resource type="ArrayMesh" uid="uid://d08x5xihh2asv" path="res://assets/models/playground/swingset/Plane_009.res" id="3_27e10"]
-[ext_resource type="Material" path="res://assets/materials/glow_shader.tres" id="3_d5ept"]
+[ext_resource type="Material" uid="uid://b7fg3sb5iio2d" path="res://assets/materials/glow_shader.tres" id="3_d5ept"]
 [ext_resource type="Script" path="res://addons/smoothing/smoothing.gd" id="3_i4fko"]
 [ext_resource type="Script" path="res://scenes/playground/swingset/qte.gd" id="6_qfivr"]
 

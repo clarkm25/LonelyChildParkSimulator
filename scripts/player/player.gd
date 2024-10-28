@@ -10,10 +10,12 @@ const JUMP_VELOCITY = 4.5
 @onready var smoothing = $Smoothing
 
 @onready var anim_player = $AnimationPlayer
+
+signal height_reached(height)
 var left_cam_limit = 180
 var right_cam_limit = 180
 var thrown := false
-
+var falling := false
 var sitting : bool = false
 
 func _ready():
@@ -27,6 +29,7 @@ func _physics_process(delta):
 	# Add the gravity.
 	if is_on_floor():
 		thrown = false
+		falling = false
 	else:
 		velocity += get_gravity() * delta
 
@@ -47,6 +50,12 @@ func _physics_process(delta):
 			velocity.z = move_toward(velocity.z, 0, SPEED)
 	
 	move_and_slide()
+	
+	if thrown:
+		if velocity.y < 0 and !falling:
+			falling = true
+			height_reached.emit(global_position.y)
+			print(global_position.y)
 
 func _input(event):
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:

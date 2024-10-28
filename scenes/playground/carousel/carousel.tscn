@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/playground/carousel_seat.gd" id="1_jt17v"]
 [ext_resource type="ArrayMesh" uid="uid://dwakji1jlybm0" path="res://assets/models/tapdig-playground-lowpoly/carousel/Circle_003.res" id="2_hcxlv"]
 [ext_resource type="Script" path="res://addons/smoothing/smoothing.gd" id="2_wqh7r"]
-[ext_resource type="Material" path="res://assets/materials/glow_shader.tres" id="3_6bxou"]
+[ext_resource type="Material" uid="uid://b7fg3sb5iio2d" path="res://assets/materials/glow_shader.tres" id="3_6bxou"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_muits"]
 size = Vector3(2.5, 1, 2.5)
