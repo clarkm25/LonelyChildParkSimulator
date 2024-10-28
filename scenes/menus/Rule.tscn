@@ -38,6 +38,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_iiomb")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
 offset_left = 300.0
 offset_top = 153.0
 offset_right = 527.0
@@ -46,6 +47,7 @@ texture = ExtResource("2_uefji")
 expand_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="TextureRect"]
+layout_mode = 0
 offset_left = 390.0
 offset_top = 64.0
 offset_right = 590.0
@@ -101,11 +103,11 @@ vertical_alignment = 1
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Try to have fun!!!!!!!!!!!!!!!!
-Perfect quicktime gives you points and.
-failing quicktimes causes happiness loss
-You have low attention span and loses 
-happiness every 1.5 secs
-"
+Successfully performing quicktime events 
+give you points and failing quicktime events 
+causes happiness loss.
+You have a low attention span and lose 
+happiness every 1.5 seconds."
 horizontal_alignment = 1
 vertical_alignment = 1
 
