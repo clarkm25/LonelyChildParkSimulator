@@ -42,6 +42,7 @@ theme = SubResource("Theme_p7o2o")
 theme_override_styles/panel = SubResource("StyleBoxTexture_chqdy")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
 offset_left = 365.0
 offset_top = 7.0
 offset_right = 765.0
@@ -86,15 +87,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -78.0
-offset_top = -24.5
-offset_right = 78.0
-offset_bottom = 24.5
+offset_left = -74.0
+offset_top = -28.0
+offset_right = 82.0
+offset_bottom = 21.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Give up being
- lonely"
+text = "Pursue
+happyness"
 horizontal_alignment = 1
 
 [node name="EndGame" type="TextureButton" parent="VBoxContainer"]
@@ -109,13 +110,16 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -56.0
-offset_top = -11.5
+offset_top = -24.0
 offset_right = 56.0
-offset_bottom = 11.5
+offset_bottom = 25.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Redo The day?"
+text = "Give up on
+happyness
+"
+horizontal_alignment = 1
 
 [connection signal="pressed" from="VBoxContainer/tryAgain" to="." method="_on_try_again_pressed"]
 [connection signal="pressed" from="VBoxContainer/EndGame" to="." method="_on_end_game_pressed"]
