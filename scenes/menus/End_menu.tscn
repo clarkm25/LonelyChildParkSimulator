@@ -1,0 +1,125 @@
+[gd_scene load_steps=8 format=3 uid="uid://e4ksrbowxyuf"]
+
+[ext_resource type="Texture2D" uid="uid://4pet32cjbayh" path="res://scenes/menus/Cloud Background.png" id="1_5k364"]
+[ext_resource type="Script" path="res://scenes/menus/end_menu.gd" id="1_7tofg"]
+[ext_resource type="Texture2D" uid="uid://bvx0ukxu6qlyo" path="res://scenes/menus/e02395c5-bb04-4a18-ae8d-e3eb27f5680e.sketchpad (2).png" id="2_elpnx"]
+[ext_resource type="Texture2D" uid="uid://s6l4dixouk1v" path="res://scenes/menus/e02395c5-bb04-4a18-ae8d-e3eb27f5680e.sketchpad (4).png" id="3_1qrju"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fi7g4"]
+bg_color = Color(0.888053, 0.912759, 0.777343, 1)
+
+[sub_resource type="Theme" id="Theme_p7o2o"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_chqdy"]
+texture = ExtResource("1_5k364")
+
+[node name="End_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7tofg")
+
+[node name="Panel2" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fi7g4")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_p7o2o")
+theme_override_styles/panel = SubResource("StyleBoxTexture_chqdy")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 365.0
+offset_top = 7.0
+offset_right = 765.0
+offset_bottom = 207.0
+texture = ExtResource("2_elpnx")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+offset_left = 373.0
+offset_top = 50.0
+offset_right = 757.0
+offset_bottom = 142.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "GAME OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -102.0
+offset_right = 100.0
+offset_bottom = 102.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="tryAgain" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("3_1qrju")
+
+[node name="Label" type="Label" parent="VBoxContainer/tryAgain"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -74.0
+offset_top = -28.0
+offset_right = 82.0
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Pursue
+happyness"
+horizontal_alignment = 1
+
+[node name="EndGame" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("3_1qrju")
+
+[node name="Label" type="Label" parent="VBoxContainer/EndGame"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = -24.0
+offset_right = 56.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Give up on
+happyness
+"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/tryAgain" to="." method="_on_try_again_pressed"]
+[connection signal="pressed" from="VBoxContainer/EndGame" to="." method="_on_end_game_pressed"]

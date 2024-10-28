@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://c4q3m6hlc44yr"]
+
+[ext_resource type="ArrayMesh" uid="uid://c4v32r07r4sx7" path="res://assets/models/tapdig-playground-lowpoly/seesaw/Plane_011.res" id="1_h58rl"]
+[ext_resource type="Script" path="res://scripts/playground/seesaw_seat.gd" id="2_6n6dp"]
+[ext_resource type="ArrayMesh" uid="uid://tps55iwf544k" path="res://assets/models/tapdig-playground-lowpoly/seesaw/Cylinder_024.res" id="2_rvh5y"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_hk03v"]
+points = PackedVector3Array(-0.0120961, -0.00253154, 0.00179892, 0.0123626, 0.00246711, 0.00285139, 0.0123626, 0.00220387, 0.00337739, 0.0194612, -0.00121582, 0.000484176, -0.0194612, 0.000887664, -0.000304571, -0.0128879, -0.000952093, 0.00416711, 0.0128879, -0.00147858, 0.00390387, 0.0194612, 0.000362159, -0.000831543, -0.0123626, 0.00220387, 0.00337739, -0.0194612, -0.000426588, -0.000831543, -0.0113083, 0.00220387, 0.000484176, 0.0113083, -0.0022683, 0.000484176, 0.0128879, 0.000887664, 0.00416711, 0.0120961, -0.00253154, 0.00258766, 0.0113083, 0.00220387, 0.000484176, 0.0194612, 0.00115139, 0.00101066, -0.0194612, -0.00121582, 0.00101066, -0.0123626, -0.0022683, 0.00311415, -0.0128879, 0.000887664, 0.00416711, -0.0113083, -0.0022683, 0.000484176, 0.0194612, -0.000426588, -0.000831543, -0.0194612, 0.00115139, 0.00101066, -0.0118335, 0.00246711, 0.0012739, 0.0128879, -0.000952093, 0.00416711, -0.0110456, 0.00167739, -4.18181e-05, 0.0118335, -0.00253154, 0.0012739, -0.0123626, 0.00246711, 0.00285139, 0.0118335, 0.00246711, 0.0012739, 0.0194612, -0.00121582, 0.00101066, 0.0126253, 0.00194014, 0.00364014, -0.0128879, -0.00147858, 0.00390387, 0.0123626, -0.0022683, 0.00311415)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hrs0v"]
+size = Vector3(5.60181, 1.10962, 1)
+
+[node name="Seesaw" type="Node3D"]
+
+[node name="HingeJoint3D" type="HingeJoint3D" parent="."]
+transform = Transform3D(128, 0, 0, 0, 128, 0, 0, 0, 128, 0, 0.846117, 0)
+node_a = NodePath("../SittableRigidbody")
+
+[node name="SeesawHinge" type="MeshInstance3D" parent="."]
+transform = Transform3D(128, 0, 0, 0, -5.59506e-06, 128, 0, -128, -5.59506e-06, 0, 0, 0)
+mesh = ExtResource("1_h58rl")
+
+[node name="SittableRigidbody" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.906635, -1.77636e-14)
+collision_layer = 16
+collision_mask = 5
+sleeping = true
+script = ExtResource("2_6n6dp")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="SittableRigidbody"]
+transform = Transform3D(128, 0, 0, 0, -5.59506e-06, 128, 0, -128, -5.59506e-06, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_hk03v")
+
+[node name="PlayerPosition" type="Node3D" parent="SittableRigidbody"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.218, 0, 0)
+
+[node name="Area3D" type="Area3D" parent="SittableRigidbody"]
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SittableRigidbody/Area3D"]
+shape = SubResource("BoxShape3D_hrs0v")
+
+[node name="Seesaw" type="MeshInstance3D" parent="SittableRigidbody"]
+transform = Transform3D(128, 0, 0, 0, -5.59506e-06, 128, 0, -128, -5.59506e-06, 0, 0, 0)
+mesh = ExtResource("2_rvh5y")
+skeleton = NodePath("../..")

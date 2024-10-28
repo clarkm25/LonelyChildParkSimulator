@@ -4,6 +4,8 @@
 [ext_resource type="Script" path="res://addons/smoothing/smoothing.gd" id="2_hgmv7"]
 
 [node name="SittableRigidbody" type="RigidBody3D" node_paths=PackedStringArray("player_seated_location", "hover_detector", "highlight_target")]
+collision_layer = 16
+collision_mask = 16
 script = ExtResource("1_mdhs7")
 player_seated_location = NodePath("FramerateSmoother/PlayerPosition")
 hover_detector = NodePath("HoverDetector")

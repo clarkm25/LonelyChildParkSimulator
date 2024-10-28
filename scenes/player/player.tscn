@@ -19,7 +19,8 @@ height = 1.26
 length = 0.16
 
 [node name="Player" type="CharacterBody3D" groups=["player"]]
-collision_mask = 3
+collision_layer = 2
+collision_mask = 5
 platform_floor_layers = 4294967265
 script = ExtResource("1_qs686")
 
