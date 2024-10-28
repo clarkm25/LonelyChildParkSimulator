@@ -44,7 +44,6 @@ func _custom_exit_behavior():
 	player.velocity = Vector3(0, linear_velocity.y, linear_velocity.z)
 	player.thrown = true
 	
-	player.anim_player.play("flip")
 	player.move_and_slide()
 
 

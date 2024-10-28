@@ -38,6 +38,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.58397, 0.094649, -6.60748)
 [node name="Swings" parent="Objects" instance=ExtResource("1_6exlk")]
 
 [node name="Player" parent="." instance=ExtResource("3_n2qx8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.21439, 0)
 
 [node name="hud" parent="." instance=ExtResource("5_xtf50")]
 unique_name_in_owner = true

@@ -15,12 +15,13 @@ run/main_scene="res://scenes/menus/Start_menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
-[display]
-
-window/stretch/mode="canvas_items"
 [debug]
 
 shapes/collision/shape_color=Color(0, 0.717647, 0.839216, 1)
+
+[display]
+
+window/stretch/mode="canvas_items"
 
 [editor]
 
