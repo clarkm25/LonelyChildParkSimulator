@@ -96,6 +96,8 @@ func _toggle_sit(state : bool):
 		player.left_cam_limit = 180
 		player.right_cam_limit = 180
 		player.reparent(get_tree().root)
+		player.rotation.x = 0
+		player.rotation.z = 0
 		
 		if !override_exit_behavior:
 			player.position = original_player_pos
