@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/playground/picnic-bench/picnic_seat.gd" id="1_lvyak"]
 [ext_resource type="Script" path="res://addons/smoothing/smoothing.gd" id="2_ft1gu"]
-[ext_resource type="ArrayMesh" uid="uid://bjuq1hffkcl6h" path="res://assets/models/tapdig-playground-lowpoly/picnic_table/Cube_017.res" id="3_3rent"]
+[ext_resource type="ArrayMesh" uid="uid://blv8vfqk0p2ti" path="res://assets/models/tapdig-playground-lowpoly/picnic_table/Cube_017.res" id="3_3rent"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3unr8"]
 size = Vector3(2.3, 1, 2)
