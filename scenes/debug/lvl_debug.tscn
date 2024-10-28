@@ -78,7 +78,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 19.7037, 0)
 [node name="Objects" type="Node3D" parent="."]
 
 [node name="Carousel" parent="Objects" instance=ExtResource("5_gpfqc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.58397, 0.0629158, -6.60748)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.58397, 0.094649, -6.60748)
 
 [node name="Swings" parent="Objects" instance=ExtResource("1_6exlk")]
 
