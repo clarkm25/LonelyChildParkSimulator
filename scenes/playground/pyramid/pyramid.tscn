@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://1wt2kuwk7y8b"]
+
+[ext_resource type="ArrayMesh" uid="uid://bkv1q0edy7h33" path="res://assets/models/unity-playground-lowpoly/pyramid/SM_Game_Piramid_01.res" id="1_mt535"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_731en"]
+points = PackedVector3Array(-1.14882, 0.0323296, -0.361625, 1.26736, 0.463814, 0.458, -0.190484, 1.5883, -0.333257, 0.696563, -0.00421816, -0.960251, -0.699944, -0.000618689, 0.955821, -0.539323, 1.35203, 0.715077, 0.767149, 0.921655, -0.999771, -0.815308, 0.463814, -1.08302, 0.533815, 1.35321, 0.716546, 0.0164729, 0.0332105, 1.20432, -1.12656, 0.913822, 0.3546, 0.850664, 1.35191, -0.27796, 1.04604, 0.00372118, 0.475116, 0.0589982, 0.463814, 1.33303, 1.26736, 0.463814, -0.458, -0.538628, 1.35128, -0.714151, 0.0589982, 0.463814, -1.33303, -0.699769, -0.00042433, -0.955582, -0.815308, 0.463814, 1.08302, -1.27373, 0.463814, -0.458, -1.27373, 0.463814, 0.458, 0.0172106, 1.42148, -0.833012, -0.835469, 1.33737, -0.309749, 0.785216, 0.391764, 1.05171, 1.18378, 0.921655, 0.416506, -0.0238308, 1.5883, 0.374751, 0.767149, 0.921655, 0.999771, 0.0172106, 1.42148, 0.833012, 1.12427, 0.043976, -0.395623, 1.18378, 0.921655, -0.416506, -0.607116, 1.50481, 0.166498, 0.0159966, 0.912985, 1.17514)
+
+[node name="Pyramid" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+mesh = ExtResource("1_mt535")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_731en")
