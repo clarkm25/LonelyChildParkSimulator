@@ -42,5 +42,9 @@ func _toggle_sit(state : bool):
 	elif state == false:
 		return
 
-func close_game():
+func close_game_bad():
 	$"../%hud/AnimationPlayer".play("fade_out")
+	
+func close_game_good():
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	get_tree().change_scene_to_file("res://scenes/menus/End_menu.tscn")
