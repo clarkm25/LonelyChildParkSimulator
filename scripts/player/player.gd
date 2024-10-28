@@ -11,8 +11,6 @@ const JUMP_VELOCITY = 4.5
 @onready var camera = $Smoothing/Camera3D
 @onready var smoothing = $Smoothing
 
-@onready var anim_player = $AnimationPlayer
-
 signal height_reached(height)
 var left_cam_limit = 180
 var right_cam_limit = 180

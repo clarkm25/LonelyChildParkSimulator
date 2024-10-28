@@ -48,17 +48,17 @@ func _ready():
 
 func _on_hover_detector_area_entered(area):
 	if !entered:
-		highlight_target.set_instance_shader_parameter("thickness", glow_outline_thickness)
+		highlight_target.get_active_material(0).next_pass.set_shader_parameter("outline_color", Color.WHITE)
 		enterable = true
 
 func _on_hover_detector_area_exited(area):
-	highlight_target.set_instance_shader_parameter("thickness", 0)
+	highlight_target.get_active_material(0).next_pass.set_shader_parameter("outline_color", Color.TRANSPARENT)
 	enterable = false
 	
 func _input(event):
 	if event.is_action_pressed("interact"):
 		if enterable:
-			highlight_target.set_instance_shader_parameter("thickness", 0)
+			highlight_target.get_active_material(0).next_pass.set_shader_parameter("outline_color", Color.TRANSPARENT)
 			enterable = false
 			entered = true
 			_toggle_sit(true)
