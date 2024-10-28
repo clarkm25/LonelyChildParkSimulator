@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://didmlif3ejciu"]
+[gd_scene load_steps=5 format=3 uid="uid://ca4eial860na4"]
 
 [ext_resource type="Script" path="res://scripts/components/ui/quicktime_event.gd" id="1_ke1mw"]
 
