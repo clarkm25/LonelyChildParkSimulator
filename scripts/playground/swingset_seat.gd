@@ -4,20 +4,22 @@ extends SittableRigidbody
 var qte_active := false
 var direction := 0
 
-var previous_z_value := 0
+var z_dir = -1
+var can_flip := true
 func _ready():
 	super()
 
 func _physics_process(delta):
 	if entered:
-		#if linear_velocity.z == 0:
+		if Input.is_action_just_pressed("move_forward"):
+			push(-1, 10)
+		elif Input.is_action_just_pressed("move_back"):
+			push(1, 10)
+		#
+		#if linear_velocity.is_zero_approx() and !qte.playing:
 			#qte.play()
-		#elif (linear_velocity.z*previous_z_value < 0) and !qte.playing:
-			#qte.play()
+			#
 		
-		if linear_velocity.is_zero_approx() and !qte.playing:
-			qte.play()
-			
 		var raycast_collision = $"../QTE/CenterChecker".get_collider()
 		if raycast_collision:
 			if linear_velocity.z > 0:
@@ -26,11 +28,9 @@ func _physics_process(delta):
 				direction = 1
 			elif linear_velocity.z == 0:
 				direction = 0
-			
-			print(direction)
-		previous_z_value = linear_velocity.z
-			
-
+			can_flip = true
+		if _is_velocity_direction_flipped() and !qte.playing:
+			qte.play()
 func _custom_exit_behavior():
 	# set player position and velocity to that of the swings so you fly off
 	player.global_position = global_position
@@ -46,6 +46,20 @@ func _custom_exit_behavior():
 
 func _on_qte_end(points: Variant) -> void:
 	Engine.time_scale = 1
-	if direction == 0:
-		direction = -1
-	apply_central_impulse(Vector3(0,0,direction*30))
+	push(z_dir, points/3)
+	
+func _is_velocity_direction_flipped() -> bool:
+	if can_flip:
+		if angular_velocity.x < 0 and z_dir != 1:
+			z_dir = 1
+			can_flip = false
+			return true
+		if angular_velocity.x > 0 and z_dir != -1:
+			z_dir = -1
+			can_flip = true
+			return true
+	return false
+	
+func push(direction, score):
+	var forward = transform.basis.z.normalized()
+	apply_central_impulse(forward * direction * score)

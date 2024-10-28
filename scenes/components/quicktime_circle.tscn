@@ -90,7 +90,7 @@ libraries = {
 "": SubResource("AnimationLibrary_1756i")
 }
 autoplay = "qte_shrink"
-speed_scale = 1.5
+speed_scale = 4.0
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 1

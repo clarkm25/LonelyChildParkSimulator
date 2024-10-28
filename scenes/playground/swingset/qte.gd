@@ -10,7 +10,7 @@ func play():
 		playing = true
 		var circle = quicktime_circle.instantiate()
 		add_child(circle)
-		Engine.time_scale = 0.2
+		Engine.time_scale = 1
 		
 func stop():
 	if playing:
