@@ -1,7 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://yqdpqgs75rfm"]
+[gd_scene load_steps=9 format=3 uid="uid://yqdpqgs75rfm"]
 
 [ext_resource type="PackedScene" uid="uid://bdbf6a6rgn8uv" path="res://scenes/playground/swingset/swings.tscn" id="1_6exlk"]
-[ext_resource type="Material" uid="uid://banb877kk5j52" path="res://assets/materials/barkchip.tres" id="1_lkv3c"]
+[ext_resource type="Material" uid="uid://bci8crlvqnt00" path="res://assets/materials/barkchip.tres" id="1_lkv3c"]
 [ext_resource type="PackedScene" uid="uid://clj3mihr2nsgv" path="res://scenes/world-items/skytime.tscn" id="2_1cihy"]
 [ext_resource type="PackedScene" uid="uid://c62hnifxmw3w2" path="res://scenes/player/player.tscn" id="3_n2qx8"]
 [ext_resource type="PackedScene" uid="uid://dr38hholcs2sx" path="res://scenes/playground/carousel/carousel.tscn" id="5_gpfqc"]
