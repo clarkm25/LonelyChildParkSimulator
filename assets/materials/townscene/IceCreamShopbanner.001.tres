@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://csnknndpqeiqk"]
+
+[ext_resource type="Texture2D" uid="uid://drkgfcfxx6862" path="res://assets/models/townscene/model/townscene_DiffuseColor_Texture_11.png" id="1_uv5xk"]
+
+[resource]
+resource_name = "IceCreamShopbanner.001"
+cull_mode = 2
+albedo_texture = ExtResource("1_uv5xk")
+roughness = 0.552786

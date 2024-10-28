@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cf31yy3j1pda0"]
+
+[ext_resource type="Texture2D" uid="uid://caxdvdtbbcp5l" path="res://assets/models/townscene/model/townscene_DiffuseColor_Texture_15.png" id="1_plqd2"]
+
+[resource]
+resource_name = "BeerBillboard.001"
+cull_mode = 2
+albedo_texture = ExtResource("1_plqd2")
+roughness = 0.552786

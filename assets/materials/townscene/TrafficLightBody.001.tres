@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bjmpbipp70eo0"]
+
+[resource]
+resource_name = "TrafficLightBody.001"
+cull_mode = 2
+albedo_color = Color(0.465898, 0.452574, 0.441142, 1)
+metallic_specular = 0.0
+roughness = 0.5

@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bkbone7keapjd"]
+
+[ext_resource type="Texture2D" uid="uid://banlpymjdvfe3" path="res://assets/models/townscene/model/townscene_DiffuseColor_Texture_4.png" id="1_ft3en"]
+
+[resource]
+resource_name = "RoadMiddle.001"
+cull_mode = 2
+albedo_texture = ExtResource("1_ft3en")
+roughness = 0.552786
+texture_filter = 0

@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://ctt8specj5fbh"]
+
+[ext_resource type="Texture2D" uid="uid://buccqctqe0f3g" path="res://assets/models/townscene/model/townscene_DiffuseColor_Texture_5.png" id="1_0fg7o"]
+
+[resource]
+resource_name = "Zebra_Cross.001"
+cull_mode = 2
+albedo_texture = ExtResource("1_0fg7o")
+roughness = 0.552786
