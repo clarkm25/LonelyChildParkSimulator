@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bpawitnk1peus"
-path="res://.godot/imported/swings.fbx-b36cb5a8c2f41951997b1a5fae254faf.scn"
+valid=false
 
 [deps]
 
 source_file="res://assets/models/tapdig-playground-lowpoly/swingset/swings.fbx"
-dest_files=["res://.godot/imported/swings.fbx-b36cb5a8c2f41951997b1a5fae254faf.scn"]
 
 [params]
 
