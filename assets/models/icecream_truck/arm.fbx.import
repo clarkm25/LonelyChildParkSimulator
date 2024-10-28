@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://sxhfb4qraly4"
-path="res://.godot/imported/SM_Toy_06.fbx-e84c9765c4d11eb5f7fd36151f4dd1c0.scn"
+uid="uid://cvu16y8fecyos"
+path="res://.godot/imported/arm.fbx-57577599a270a460bfe8d81ae48268a0.scn"
 
 [deps]
 
-source_file="res://assets/models/unity-playground-lowpoly/SM_Toy_06.fbx"
-dest_files=["res://.godot/imported/SM_Toy_06.fbx-e84c9765c4d11eb5f7fd36151f4dd1c0.scn"]
+source_file="res://assets/models/icecream_truck/arm.fbx"
+dest_files=["res://.godot/imported/arm.fbx-57577599a270a460bfe8d81ae48268a0.scn"]
 
 [params]
 
@@ -32,10 +32,15 @@ animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
-"materials": {
-"07 - Default": {
-"use_external/enabled": true,
-"use_external/path": "res://assets/materials/07 - Default.tres"
+"meshes": {
+"Mesh": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/people/Mesh.res"
 }
 }
 }

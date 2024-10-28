@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cw55t2upx1bpk"
-path="res://.godot/imported/SM_Game_Piramid_01.fbx-5131cdd74ab71bc492e3f90112dc86ec.scn"
+uid="uid://cfe81a46gvima"
+path="res://.godot/imported/SM_Toy_04.fbx-90bec4e0cfe347d35aeb1bfa65b73747.scn"
 
 [deps]
 
-source_file="res://assets/models/unity-playground-lowpoly/SM_Game_Piramid_01.fbx"
-dest_files=["res://.godot/imported/SM_Game_Piramid_01.fbx-5131cdd74ab71bc492e3f90112dc86ec.scn"]
+source_file="res://assets/models/unity-playground-lowpoly/sandbox/SM_Toy_04.fbx"
+dest_files=["res://.godot/imported/SM_Toy_04.fbx-90bec4e0cfe347d35aeb1bfa65b73747.scn"]
 
 [params]
 
@@ -36,6 +36,17 @@ _subresources={
 "07 - Default": {
 "use_external/enabled": true,
 "use_external/path": "res://assets/materials/07 - Default.tres"
+}
+},
+"meshes": {
+"SM_Toy_04": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/unity-playground-lowpoly/sandbox/SM_Toy_04.res"
 }
 }
 }

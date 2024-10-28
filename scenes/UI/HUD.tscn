@@ -1,0 +1,62 @@
+[gd_scene load_steps=6 format=3 uid="uid://cwihc6jexi1pp"]
+
+[ext_resource type="Script" path="res://scripts/UI/hud.gd" id="1_1shan"]
+[ext_resource type="Texture2D" uid="uid://r0qq5wb4e1iu" path="res://scenes/UI/pixil-frame-0.png" id="2_6lw6w"]
+
+[sub_resource type="Theme" id="Theme_uv6lf"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_pd6w3"]
+color = Color(0.5, 1, 0.975, 1)
+thickness = 9
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_mrdd5"]
+color = Color(0.919271, 0.86143, 0.395062, 1)
+thickness = 9
+
+[node name="hud" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1shan")
+
+[node name="overlay" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+
+[node name="HSlider" type="HSlider" parent="."]
+layout_mode = 2
+offset_left = 21.0
+offset_top = -5.0
+offset_right = 213.0
+offset_bottom = 95.0
+theme = SubResource("Theme_uv6lf")
+theme_override_constants/center_grabber = 1
+theme_override_constants/grabber_offset = 21
+theme_override_icons/grabber = ExtResource("2_6lw6w")
+theme_override_styles/slider = SubResource("StyleBoxLine_pd6w3")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_mrdd5")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+offset_left = 17.0
+offset_top = 11.0
+offset_right = 98.0
+offset_bottom = 34.0
+text = "Happiness
+"
+
+[node name="hudUpdate" type="Control" parent="."]
+layout_mode = 2
+anchors_preset = 0
+offset_left = 219.0
+offset_top = 44.0
+offset_right = 477.0
+offset_bottom = 98.0

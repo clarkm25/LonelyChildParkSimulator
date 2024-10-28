@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://yqdpqgs75rfm"]
+[gd_scene load_steps=9 format=3 uid="uid://yqdpqgs75rfm"]
 
 [ext_resource type="PackedScene" uid="uid://bdbf6a6rgn8uv" path="res://scenes/playground/swingset/swings.tscn" id="1_6exlk"]
-[ext_resource type="Material" uid="uid://banb877kk5j52" path="res://assets/materials/barkchip.tres" id="1_lkv3c"]
+[ext_resource type="Material" uid="uid://bci8crlvqnt00" path="res://assets/materials/barkchip.tres" id="1_lkv3c"]
+[ext_resource type="PackedScene" uid="uid://clj3mihr2nsgv" path="res://scenes/world-items/skytime.tscn" id="2_1cihy"]
 [ext_resource type="PackedScene" uid="uid://c62hnifxmw3w2" path="res://scenes/player/player.tscn" id="3_n2qx8"]
 [ext_resource type="PackedScene" uid="uid://dr38hholcs2sx" path="res://scenes/playground/carousel/carousel.tscn" id="5_gpfqc"]
+[ext_resource type="PackedScene" uid="uid://cwihc6jexi1pp" path="res://scenes/UI/HUD.tscn" id="5_xtf50"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_afqvf"]
 size = Vector3(50, 0.5, 50)
@@ -25,15 +27,17 @@ shape = SubResource("BoxShape3D_afqvf")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/Platform"]
 mesh = SubResource("BoxMesh_0rpeh")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment"]
-transform = Transform3D(1, 0, 0, 0, -0.439939, 0.898027, 0, -0.898027, -0.439939, 0, 20, 0)
-shadow_enabled = true
+[node name="Skytime" parent="Environment/Platform" instance=ExtResource("2_1cihy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 19.7037, 0)
 
 [node name="Objects" type="Node3D" parent="."]
 
 [node name="Carousel" parent="Objects" instance=ExtResource("5_gpfqc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.58397, 4.76837e-07, -6.60748)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.58397, 0.094649, -6.60748)
 
 [node name="Swings" parent="Objects" instance=ExtResource("1_6exlk")]
 
 [node name="Player" parent="." instance=ExtResource("3_n2qx8")]
+
+[node name="hud" parent="." instance=ExtResource("5_xtf50")]
+unique_name_in_owner = true

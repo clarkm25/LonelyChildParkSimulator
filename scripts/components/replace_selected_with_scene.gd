@@ -17,7 +17,7 @@ func _run() -> void:
 			scene.position = pos
 			scene.rotation = rot
 			node.add_sibling(scene)
-			scene.name = "Solid_Fence"
+			scene.name = "Garden_Bench"
 			scene.set_owner(get_scene())
 			node.queue_free()
 		else:

@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cbjoqthrjrh4q"
-path="res://.godot/imported/SM_Sandbox_01.fbx-4aae6cde4980d58d634dbd044850ca26.scn"
+uid="uid://bav8275urvgeu"
+path="res://.godot/imported/icecream.glb-73a8178eb30d8f2634eb4916e510dc9f.scn"
 
 [deps]
 
-source_file="res://assets/models/unity-playground-lowpoly/SM_Sandbox_01.fbx"
-dest_files=["res://.godot/imported/SM_Sandbox_01.fbx-4aae6cde4980d58d634dbd044850ca26.scn"]
+source_file="res://assets/models/icecream_truck/icecream.glb"
+dest_files=["res://.godot/imported/icecream.glb-73a8178eb30d8f2634eb4916e510dc9f.scn"]
 
 [params]
 
@@ -27,18 +27,10 @@ meshes/force_disable_compression=false
 skins/use_named_skins=true
 animation/import=true
 animation/fps=30
-animation/trimming=true
+animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={
-"materials": {
-"07 - Default": {
-"use_external/enabled": true,
-"use_external/path": "res://assets/materials/07 - Default.tres"
-}
-}
-}
-fbx/importer=0
-fbx/allow_geometry_helper_nodes=false
-fbx/embedded_image_handling=1
+_subresources={}
+gltf/naming_version=1
+gltf/embedded_image_handling=1

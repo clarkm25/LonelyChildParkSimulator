@@ -50,3 +50,11 @@ shape = SubResource("CapsuleShape3D_3ogmn")
 [node name="StairstepCollider" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.457, -0.34)
 shape = SubResource("SeparationRayShape3D_7jdtw")
+
+[node name="AudioListener3D" type="AudioListener3D" parent="."]
+current = true
+
+[node name="AttentionTimer" type="Timer" parent="."]
+wait_time = 1.5
+
+[connection signal="timeout" from="AttentionTimer" to="." method="_on_attention_timer_timeout"]
