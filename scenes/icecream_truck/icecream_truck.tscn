@@ -46,7 +46,7 @@ tracks/0/enabled = true
 tracks/0/path = NodePath(".")
 tracks/0/interp = 2
 tracks/0/loop_wrap = false
-tracks/0/keys = PackedFloat32Array(0, 1, 150, 0, 0, 18, 1, 25, 0, 0, 23, 1, 0, 0, 0, 25, 1, 1, 0, 0)
+tracks/0/keys = PackedFloat32Array(0, 1, 160, 0, 0, 18, 1, 25, 0, 0, 23, 1, 0, 0, 0, 25, 1, 1, 0, 0)
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
@@ -272,7 +272,7 @@ _data = {
 }
 
 [node name="IcecreamTruck" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 150, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 160, 0, 0)
 script = ExtResource("1_pllpx")
 
 [node name="IcecreamTruckSeat" type="RigidBody3D" parent="." node_paths=PackedStringArray("player_seated_location", "hover_detector", "highlight_target")]
@@ -351,7 +351,7 @@ mesh = SubResource("BoxMesh_yo7f5")
 [node name="GoodArm" type="Node3D" parent="IcecreamTruckModel"]
 
 [node name="Arm" type="MeshInstance3D" parent="IcecreamTruckModel/GoodArm"]
-transform = Transform3D(-0.497906, 0.431337, -6.96893, 5.26747, -4.56287, -0.658758, -4.58321, -5.29095, -2.52275e-05, 3.745, 7.13261, -0.105638)
+transform = Transform3D(-0.497924, 0.431316, -6.96893, 5.26749, -4.56285, -0.658757, -4.58319, -5.29097, -3.04622e-07, 3.745, 7.13261, -0.105638)
 mesh = ExtResource("10_kcw3l")
 skeleton = NodePath("../..")
 
