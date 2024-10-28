@@ -1,10 +1,15 @@
 extends SittableRigidbody
 
+var amount_spins := 0.0
 func _physics_process(delta):
 	if entered:
-		if Input.is_action_just_pressed("ui_accept"):
-			apply_torque_impulse(Vector3(0, 0.0025, 0))
-
+		var raycast_collision = $"../QTE/CenterChecker".get_collider()
+		if raycast_collision:
+			if amount_spins >= (angular_velocity.y):
+				$"../QTE".play()
+				amount_spins = 0.0
+			else:
+				amount_spins = amount_spins + 1.0
 func _custom_exit_behavior():
 	# set player position and velocity to that of the carousel so you fly off
 	player.rotation.x = 0
@@ -15,3 +20,7 @@ func _custom_exit_behavior():
 	player.thrown = true
 	
 	player.move_and_slide()
+
+
+func _on_qte_end(points):
+	apply_torque_impulse(Vector3(0, 0.00005 * points, 0))
