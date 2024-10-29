@@ -3,8 +3,8 @@ extends Node3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$SirensTimer.wait_time = randf()*120 + 60 # between 60 and 180 second timer
-	$SirensTimer.start()
+	$Environment_Noises/AmbianceNoiseTimer.wait_time = randf()*30 + 15
+	$Environment_Noises/AmbianceNoiseTimer.start()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -17,4 +17,6 @@ func _process(delta: float) -> void:
 
 
 func _on_timer_timeout() -> void:
-	$Environment_Noises/AudioStreamPlayer3D_Sirens.play()
+	$Environment_Noises/AudioStreamPlayer3D_Ambiance.play()
+	$Environment_Noises/AmbianceNoiseTimer.wait_time = randf()*30 + 15
+	$Environment_Noises/AmbianceNoiseTimer.start()
