@@ -26,7 +26,7 @@ material_overlay = SubResource("StandardMaterial3D_w6le6")
 radius = 0.25
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 2.0
 one_shot = true
 
 [connection signal="body_entered" from="RigidBody3D" to="." method="_on_rigid_body_3d_body_entered"]
