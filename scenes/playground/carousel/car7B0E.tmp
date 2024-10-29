@@ -51,15 +51,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.919096, 0.941154, 0.523976)
 transform = Transform3D(16, 0, 0, 0, -6.99382e-07, 16, 0, -16, -6.99382e-07, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_fnope")
 
-[node name="Label3D" type="Label3D" parent="CarouselSeat"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.46547, 0)
-visible = false
-pixel_size = 0.003
-billboard = 1
-text = "i can climb in with 'e'
-and press 'space' to push myself!"
-font_size = 48
-
 [node name="QTE" type="Node3D" parent="."]
 script = ExtResource("5_wk5yn")
 
@@ -68,9 +59,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.919, 0.242358, 0.524)
 target_position = Vector3(0, 1, 0)
 collision_mask = 18
 hit_from_inside = true
-
-[node name="ActivityTimer" type="Timer" parent="."]
-wait_time = 30.0
-one_shot = true
 
 [connection signal="end" from="QTE" to="CarouselSeat" method="_on_qte_end"]
