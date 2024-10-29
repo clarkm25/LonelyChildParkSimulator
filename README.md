@@ -27,3 +27,24 @@
 - Dog random event
 - Bird random event
 - Cool looking stick sword
+
+# How to launch and play LonelyChildParkSimulator
+All the player has to do is run the executable - due to missing Publisher on both platforms, you need:
+
+## On Windows, when security prompt opens:
+   More Info button
+   Open Anyway
+## On MacOS, when you open the DMG file, you need to right click and click "Open". Then click "Open" again.
+
+## Keys:
+### Movement:
+   W - Move up
+	 A - Move left
+	 S - Move down
+	 D - Move right
+
+### Interact: E - to enter/exit playground equipment (and the icecream truck)
+
+### Quick Time Events: Spacebar - as the circle closes in on the green circle (timing is crucial)
+
+### Menu UI Buttons: Mouse Aim + Left Click
