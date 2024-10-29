@@ -14,3 +14,7 @@ func _process(delta: float) -> void:
 func _on_timer_timeout() -> void:
 	$AnimationPlayer.play("Drive")
 	$AudioStreamPlayer3D.play()
+
+
+func _on_bad_ending_delay_sound_timer_timeout() -> void:
+	$"AudioStreamPlayer3D_BadEnding".play()
