@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxcruot6s3mrc"]
+
+[ext_resource type="PackedScene" uid="uid://pdt6rq7u1eb8" path="res://assets/models/dadcar/FREE_CAR_01.fbx" id="1_rd64w"]
+[ext_resource type="PackedScene" uid="uid://b8jbkfunvrft2" path="res://assets/models/dadcar/low poly guy.fbx" id="2_cjwj6"]
+
+[node name="FREE_CAR_01" instance=ExtResource("1_rd64w")]
+
+[node name="low poly guy" parent="." index="1" instance=ExtResource("2_cjwj6")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.456557, -0.351089, -0.199722)
+
+[node name="Skeleton3D" parent="low poly guy/Armature" index="0"]
+transform = Transform3D(1, 0, 0, 0, 0.961228, 0.275755, 0, -0.275755, 0.961228, 0, -2.79397e-09, 0.0040975)
+bones/1/rotation = Quaternion(0.077475, -0.309525, 0.010475, 0.950475)
+bones/2/position = Vector3(-1.1653e-10, 3.72529e-09, 5.8276e-10)
+bones/2/rotation = Quaternion(-0.135114, 0.49537, -0.633301, 0.579036)
+bones/2/scale = Vector3(1, 1, 1)
+bones/7/position = Vector3(-1.1653e-10, 3.72529e-09, 5.8276e-10)
+bones/7/rotation = Quaternion(0.255952, -0.0555739, 0.595994, 0.759073)
+bones/7/scale = Vector3(1, 1, 1)
+bones/15/position = Vector3(4.37114e-10, 0.00958862, -3.18562e-10)
+bones/15/rotation = Quaternion(-0.12968, -0.386578, 0.569689, 0.713579)
+bones/15/scale = Vector3(1, 1, 1)
+bones/17/rotation = Quaternion(0.055475, 0.000474975, 0.000474975, 0.998475)
+bones/21/position = Vector3(4.37114e-10, 0.00958862, -3.18562e-10)
+bones/21/rotation = Quaternion(-0.162744, 0.328713, -0.604611, 0.707042)
+bones/21/scale = Vector3(1, 1, 1)
+
+[node name="anim_run" parent="low poly guy" index="1"]
+visible = false
+
+[node name="anim_idle" parent="low poly guy" index="2"]
+visible = false
+
+[node name="Point" parent="low poly guy" index="4"]
+visible = false
+
+[node name="Camera" parent="low poly guy" index="5"]
+visible = false
+
+[editable path="low poly guy"]

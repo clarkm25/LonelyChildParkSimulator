@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://qf7bcenxquxx"]
+
+[ext_resource type="Texture2D" uid="uid://is81aopxj8xq" path="res://assets/models/dadcar/001_COLOR_BASIC.png" id="1_mv84x"]
+
+[resource]
+resource_name = "BASIC COLOR"
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 1, 1, 1)
+albedo_texture = ExtResource("1_mv84x")
+emission_enabled = true
+emission_energy_multiplier = 0.0
