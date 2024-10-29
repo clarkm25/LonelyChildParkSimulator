@@ -23,3 +23,4 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	$Player.axis_lock_angular_z = false
 	$Player.movecam = true	
 	$Player.reparent(get_tree().current_scene)
+	queue_free()
