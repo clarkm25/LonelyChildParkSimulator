@@ -2,8 +2,10 @@ extends SittableRigidbody
 
 func _input(event):
 	if event.is_action_pressed("interact"):
+		if $"../AnimationPlayer".is_playing():
+			return
 		if enterable:
-			highlight_target.set_instance_shader_parameter("thickness", 0)
+			highlight_target.set_instance_shader_parameter("thickness", 0.2)
 			enterable = false
 			entered = true
 			_toggle_sit(true)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://bdbf6a6rgn8uv"]
 
-[ext_resource type="ArrayMesh" uid="uid://bk0ojrtynixyk" path="res://assets/models/playground/swingset/Cylinder_022.res" id="1_vdsso"]
+[ext_resource type="ArrayMesh" uid="uid://bk0ojrtynixyk" path="res://assets/models/tapdig-playground-lowpoly/swingset/Cylinder_022.res" id="1_vdsso"]
 [ext_resource type="Script" path="res://scripts/playground/swingset_seat.gd" id="2_py7hx"]
 [ext_resource type="ArrayMesh" uid="uid://d08x5xihh2asv" path="res://assets/models/tapdig-playground-lowpoly/swingset/Plane_009.res" id="3_27e10"]
 [ext_resource type="Script" path="res://addons/smoothing/smoothing.gd" id="3_i4fko"]
@@ -53,6 +53,15 @@ mesh = ExtResource("3_27e10")
 [node name="PlayerPosition" type="Node3D" parent="SwingsetSeat/Smoothing"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.528561, 0)
 
+[node name="Label3D" type="Label3D" parent="SwingsetSeat"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.652008, -0.17304)
+visible = false
+pixel_size = 0.003
+billboard = 1
+text = "i can climb in with 'e'
+and press 'space' to push myself!"
+font_size = 48
+
 [node name="Swingtop" type="MeshInstance3D" parent="."]
 transform = Transform3D(-2.62268e-07, 0, 6, 0, 6, 0, -6, 0, -2.62268e-07, 0, 0, 0)
 mesh = ExtResource("1_vdsso")
@@ -68,5 +77,14 @@ script = ExtResource("6_qfivr")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.000914335, 0)
 target_position = Vector3(0, 1, 0)
 collision_mask = 16
+
+[node name="FlipChecker" type="RayCast3D" parent="QTE"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.317, -1.58)
+target_position = Vector3(0, 1, 0)
+collision_mask = 16
+
+[node name="ActivityTimer" type="Timer" parent="."]
+wait_time = 30.0
+one_shot = true
 
 [connection signal="end" from="QTE" to="SwingsetSeat" method="_on_qte_end"]

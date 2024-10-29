@@ -34,6 +34,10 @@ var player_cam_pos : Vector3
 var debug := false
 
 var QTE : Node3D
+var activity_timer : Timer
+var info_label : Label3D
+
+var activity_timer_name = "GenericTimer"
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player = get_tree().get_first_node_in_group("player")
@@ -44,17 +48,32 @@ func _ready():
 	hover_detector.connect("area_exited", _on_hover_detector_area_exited)
 	
 	QTE = get_node_or_null("QTE")
+	activity_timer = player.get_node_or_null(activity_timer_name)
+	info_label = get_node_or_null("Label3D")
 	#highlight_target.material_overlay = glow_shader
 
 func _on_hover_detector_area_entered(area):
 	if !entered:
-		highlight_target.get_active_material(0).next_pass.set_shader_parameter("outline_color", Color.WHITE)
-		enterable = true
+		if $Label3D:
+			$Label3D.show()
+		if activity_timer != null and !activity_timer.is_stopped():
+			highlight_target.get_active_material(0).next_pass.set_shader_parameter("outline_color", Color.RED)
+			if info_label:
+				info_label.modulate = Color.RED
+				info_label.text = "i'm bored!\n i'll play with this later"
+			enterable = false
+		else:
+			highlight_target.get_active_material(0).next_pass.set_shader_parameter("outline_color", Color.WHITE)
+			if info_label:
+				info_label.modulate = Color.WHITE
+				info_label.text = "i can climb in with 'e'\n and press 'space' to push myself!"
+			enterable = true
 
 func _on_hover_detector_area_exited(area):
 	highlight_target.get_active_material(0).next_pass.set_shader_parameter("outline_color", Color.TRANSPARENT)
 	enterable = false
-	
+	if $Label3D:
+		$Label3D.hide()
 func _input(event):
 	if event.is_action_pressed("interact"):
 		if enterable:
@@ -99,6 +118,9 @@ func _toggle_sit(state : bool):
 		player.rotation.x = 0
 		player.rotation.z = 0
 		
+		if activity_timer:
+			activity_timer.start()
+				
 		if !override_exit_behavior:
 			player.position = original_player_pos
 		else:
