@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://bpdfwi8xhbs5i"]
+[gd_scene load_steps=5 format=3 uid="uid://bpdfwi8xhbs5i"]
 
+[ext_resource type="Script" path="res://scenes/playground/soccerball/soccerball.gd" id="1_40hbg"]
 [ext_resource type="Texture2D" uid="uid://cybfg8wvv3jdn" path="res://assets/materials/soccerTexture.png" id="1_i4as8"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_qd7ux"]
@@ -9,10 +10,13 @@ radius = 0.26093
 albedo_texture = ExtResource("1_i4as8")
 
 [node name="Soccerball" type="Node3D"]
+script = ExtResource("1_40hbg")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
 collision_layer = 2
 collision_mask = 3
+contact_monitor = true
+max_contacts_reported = 1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
 shape = SubResource("SphereShape3D_qd7ux")
@@ -20,3 +24,10 @@ shape = SubResource("SphereShape3D_qd7ux")
 [node name="CSGSphere3D" type="CSGSphere3D" parent="RigidBody3D/CollisionShape3D"]
 material_overlay = SubResource("StandardMaterial3D_w6le6")
 radius = 0.25
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="body_entered" from="RigidBody3D" to="." method="_on_rigid_body_3d_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
