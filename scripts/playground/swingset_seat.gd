@@ -18,6 +18,7 @@ func _toggle_sit(state : bool):
 		player.height_reached.connect(peaked, CONNECT_ONE_SHOT)
 		if !qte.playing:
 			qte.play()
+			bonking_head = false
 	if state == false:
 		qte.stop()
 
