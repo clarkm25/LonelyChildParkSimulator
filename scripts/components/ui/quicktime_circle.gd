@@ -23,7 +23,6 @@ func _input(event):
 			score_label.label_settings.font_color = Color("16bb77")
 		else:
 			score_label.label_settings.font_color = Color.WHITE_SMOKE
-		score_label.show()
 		$Timer.start()
 
 func _on_timer_timeout():

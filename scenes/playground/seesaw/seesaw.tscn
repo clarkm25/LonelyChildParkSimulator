@@ -23,7 +23,7 @@ angular_limit/lower = -1.98968
 angular_limit/bias = 0.99
 angular_limit/softness = 0.01
 angular_limit/relaxation = 0.01
-motor/target_velocity = -0.0872665
+motor/target_velocity = -0.523599
 
 [node name="SeesawHinge" type="MeshInstance3D" parent="."]
 transform = Transform3D(128, 0, 0, 0, -5.59506e-06, 128, 0, -128, -5.59506e-06, 0, 0, 0)
@@ -31,7 +31,7 @@ mesh = ExtResource("1_h58rl")
 
 [node name="SittableRigidbody" type="RigidBody3D" parent="." node_paths=PackedStringArray("player_seated_location", "hover_detector", "highlight_target")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.906635, -1.77636e-14)
-collision_layer = 16
+collision_layer = 20
 collision_mask = 5
 axis_lock_linear_x = true
 axis_lock_linear_y = true
@@ -62,3 +62,5 @@ shape = SubResource("BoxShape3D_hrs0v")
 transform = Transform3D(128, 0, 0, 0, -5.59506e-06, 128, 0, -128, -5.59506e-06, 0, 0, 0)
 mesh = ExtResource("2_rvh5y")
 skeleton = NodePath("../..")
+
+[connection signal="body_entered" from="SittableRigidbody" to="SittableRigidbody" method="_on_body_entered"]

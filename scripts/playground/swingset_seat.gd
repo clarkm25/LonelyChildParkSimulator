@@ -7,14 +7,17 @@ var direction := 0
 var z_dir = -1
 var can_flip := true
 
+var bonking_head := false
 func _ready():
+	activity_timer_name = "SwingTimer"
 	super()
-	player.height_reached.connect(peaked)
-
+	
 func _toggle_sit(state : bool):
 	super(state)
-	if state == true and !qte.playing:
-		qte.play()
+	if state == true:
+		player.height_reached.connect(peaked, CONNECT_ONE_SHOT)
+		if !qte.playing:
+			qte.play()
 	if state == false:
 		qte.stop()
 
@@ -32,23 +35,37 @@ func _physics_process(delta):
 			
 		if _is_velocity_direction_flipped() and !qte.playing:
 			qte.play()
+		
+		if $"../QTE/FlipChecker".is_colliding():
+			player.height_reached.disconnect(peaked)
+			bonking_head = true
+			
+			_toggle_sit(false)
 			
 func _custom_exit_behavior():
 	# set player position and velocity to that of the swings so you fly off
 	player.global_position = global_position
-	player.happiness +=20
 	
-	player.rotation.x = 0
-	player.rotation.z = 0
+	if !bonking_head:
+		player.rotation.x = 0
+		player.rotation.z = 0
 	
 	player.velocity = Vector3(0, linear_velocity.y, linear_velocity.z)
 	player.thrown = true
 	
+	if bonking_head:
+		entered = false
+		player.sliding = true
+		player.bonkhead = true
+		player.get_node("AnimationPlayer").play("swing_fall")
+		
+		
 	player.move_and_slide()
 
 
 func _on_qte_end(points: Variant) -> void:
 	Engine.time_scale = 1
+	player.happiness += points / 30
 	push(z_dir, points/3)
 	
 func _is_velocity_direction_flipped() -> bool:
@@ -69,6 +86,13 @@ func push(direction, score):
 	var forward = transform.basis.z.normalized()
 	apply_central_impulse(forward * direction * score)
 	
-func peaked(height):
-	#TODO: add harry's function for happiness adding
-	pass
+func peaked(height : float):
+	var height_modifier = 3
+	var score = round(height * height_modifier)
+	player.happiness += score
+	
+	var hud = get_tree().get_first_node_in_group("hud")
+	if score > 5:
+		hud.addUpdate("      ",""," whoaaaa niece higt!",Color(1,1,0,1))
+	else:
+		hud.addUpdate("      ",""," are time!!",Color(0,1,0,1))

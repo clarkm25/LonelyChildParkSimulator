@@ -35,6 +35,7 @@ enabled=PackedStringArray("res://addons/AutoMat/plugin.cfg", "res://addons/smoot
 
 player="Group for the player characterbody 3d"
 swing=""
+hud=""
 
 [input]
 
