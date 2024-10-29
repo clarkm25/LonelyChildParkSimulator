@@ -20,3 +20,6 @@ func addUpdate(qty,text1,text2,color):
 	lab.text = ""+text1+str(qty)+text2
 	lab.set_modulate(color)
 	updates.add_child(lab)
+	
+func close_game():
+	get_tree().quit()

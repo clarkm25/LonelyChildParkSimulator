@@ -31,6 +31,11 @@ func _toggle_sit(state : bool):
 		player.position = Vector3.ZERO
 		
 		$"../AnimationPlayer".play("Garage_Door_Retract")
+		
+		$"../%hud/HSlider".visible = false
+		$"../%hud/Label".visible = false
+		$"../%hud/hudUpdate".visible = false
+		
 		if player.happiness >= 70:
 			$"../AnimationPlayer".queue("The_Good_Ending")
 		else:
@@ -39,5 +44,9 @@ func _toggle_sit(state : bool):
 	elif state == false:
 		return
 
-func close_game():
-	get_tree().quit()
+func close_game_bad():
+	$"../%hud/AnimationPlayer".play("fade_out")
+	
+func close_game_good():
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	get_tree().change_scene_to_file("res://scenes/menus/End_menu.tscn")

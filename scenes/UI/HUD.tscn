@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cwihc6jexi1pp"]
+[gd_scene load_steps=9 format=3 uid="uid://cwihc6jexi1pp"]
 
 [ext_resource type="Script" path="res://scripts/UI/hud.gd" id="1_1shan"]
 [ext_resource type="FontFile" uid="uid://fg15i6bft32t" path="res://assets/ui/fonts/CrayonLibre.ttf" id="1_ndajj"]
@@ -18,7 +18,58 @@ thickness = 9
 color = Color(0.919271, 0.86143, 0.395062, 1)
 thickness = 9
 
-[node name="hud" type="Control" groups=["hud"]]
+[sub_resource type="Animation" id="Animation_52h8i"]
+resource_name = "fade_out"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("overlay:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"close_game"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_fpsxw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("overlay:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qb83a"]
+_data = {
+"RESET": SubResource("Animation_fpsxw"),
+"fade_out": SubResource("Animation_52h8i")
+}
+
+[node name="hud" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -35,7 +86,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(1, 1, 1, 0)
+color = Color(0, 0, 0, 0)
 
 [node name="HSlider" type="HSlider" parent="."]
 texture_filter = 1
@@ -71,3 +122,8 @@ offset_left = 219.0
 offset_top = 44.0
 offset_right = 477.0
 offset_bottom = 98.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qb83a")
+}
