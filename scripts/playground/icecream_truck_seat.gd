@@ -35,6 +35,7 @@ func _toggle_sit(state : bool):
 			$"../AnimationPlayer".queue("The_Good_Ending")
 		else:
 			$"../AnimationPlayer".queue("The_Bad_Ending")
+			$"../BadEndingDelaySoundTimer".start()
 	
 	elif state == false:
 		return

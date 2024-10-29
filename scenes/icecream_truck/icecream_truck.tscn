@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://b1bvttb51stfx"]
+[gd_scene load_steps=28 format=3 uid="uid://b1bvttb51stfx"]
 
 [ext_resource type="Script" path="res://scripts/playground/icecream_truck_seat.gd" id="1_akegc"]
 [ext_resource type="Script" path="res://scenes/icecream_truck/icecream_truck.gd" id="1_pllpx"]
@@ -12,39 +12,13 @@
 [ext_resource type="ArrayMesh" uid="uid://bmav1sy4otqv5" path="res://assets/models/icecream_truck/arm.res" id="10_kcw3l"]
 [ext_resource type="PackedScene" uid="uid://b3uhetqjdx6lj" path="res://scenes/icecream_truck/floating_icecream.tscn" id="11_pavlc"]
 [ext_resource type="AudioStream" uid="uid://djxwas7fwv2li" path="res://assets/music/icecream_truck_theme.mp3" id="12_xfvfe"]
+[ext_resource type="AudioStream" uid="uid://bk5hdu625g7n4" path="res://assets/music/Retro Ambience 11.wav" id="13_xjcm5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xqye4"]
 size = Vector3(3, 1, 4.25)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_3ijkd"]
 points = PackedVector3Array(-1.20108, -1.11022e-16, -0.323889, -0.0686782, 1.40948, -0.0465004, -0.068549, 1.37922, 0.183299, 0.974594, 0.015676, -0.417651, 1.04013, 0.0440816, 0.448324, -1.20676, 0.329454, 0.341328, 0.958789, 0.8927, -0.390643, 0.958789, 0.8927, 0.39572, -1.02844, 0.436506, -0.407553, -1.20108, -1.11022e-16, 0.328965, -0.236134, 1.39632, -0.216682, -1.02844, 0.436506, 0.41263, -0.387603, 0.848689, 0.4, -0.39126, 0.850311, -0.4, -1.20676, 0.329454, -0.336252, -0.885869, 0.757367, 0.0916429, -0.233881, 1.35191, 0.151708, -0.537555, 0.0166291, -0.417084, 1, 0.859259, -0.358695, -0.532336, 0.0250658, 0.417139, 0.962155, 0.0238393, 0.417869, 0.0304714, 1.381, 0.117886, 1, 0.859259, 0.363771, -0.133943, 1.31159, -0.275932, -0.0343578, 1.39368, -0.182198, -1.20676, 0.0797165, -0.371859, -0.885869, 0.757367, -0.0865667, -0.0687318, 1.34289, 0.215009, 0.832746, 0.850443, -0.4, -1.02844, 0.293819, 0.41263, -0.430737, 0.886315, 0.381347, -0.289308, 1.28557, -0.263651)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ni11c"]
-albedo_color = Color(0, 0, 0, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_s2nmi"]
-material = SubResource("StandardMaterial3D_ni11c")
-size = Vector3(15, 5, 1)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ucfld"]
-load_path = "res://.godot/imported/metal.png-10ed824db027b14efbccf1e6fa63d7a5.ctex"
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_eei12"]
-render_priority = 0
-shader = ExtResource("10_4akp0")
-shader_parameter/outline_color = Color(1, 1, 1, 1)
-shader_parameter/thickness = 4.0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0fik3"]
-next_pass = SubResource("ShaderMaterial_eei12")
-albedo_color = Color(1, 1, 1, 0)
-albedo_texture = SubResource("CompressedTexture2D_ucfld")
-uv1_scale = Vector3(4, 4, 4)
-texture_filter = 0
-
-[sub_resource type="BoxMesh" id="BoxMesh_yo7f5"]
-material = SubResource("StandardMaterial3D_0fik3")
-size = Vector3(15, 5, 0.1)
 
 [sub_resource type="Animation" id="Animation_oa2o4"]
 resource_name = "Drive"
@@ -281,6 +255,33 @@ _data = {
 "The_Good_Ending": SubResource("Animation_4c3ji")
 }
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ni11c"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_s2nmi"]
+material = SubResource("StandardMaterial3D_ni11c")
+size = Vector3(15, 5, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ucfld"]
+load_path = "res://.godot/imported/metal.png-10ed824db027b14efbccf1e6fa63d7a5.ctex"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eei12"]
+render_priority = 0
+shader = ExtResource("10_4akp0")
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/thickness = 4.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0fik3"]
+next_pass = SubResource("ShaderMaterial_eei12")
+albedo_color = Color(1, 1, 1, 0)
+albedo_texture = SubResource("CompressedTexture2D_ucfld")
+uv1_scale = Vector3(4, 4, 4)
+texture_filter = 0
+
+[sub_resource type="BoxMesh" id="BoxMesh_yo7f5"]
+material = SubResource("StandardMaterial3D_0fik3")
+size = Vector3(15, 5, 0.1)
+
 [node name="IcecreamTruck" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 160, 0, 0)
 script = ExtResource("1_pllpx")
@@ -316,6 +317,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.748993, 0.62, 2.38563)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="IcecreamTruckSeat"]
 transform = Transform3D(3.2, 0, 0, 0, 3.2, 0, 0, 0, 3.2, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_3ijkd")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_h4vls")
+}
+autoplay = "RESET"
 
 [node name="IcecreamTruckModel" type="Node3D" parent="."]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
@@ -377,21 +384,23 @@ mesh = ExtResource("10_kcw3l")
 skeleton = NodePath("../..")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 150.0
 one_shot = true
 autostart = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_h4vls")
-}
-autoplay = "RESET"
+[node name="BadEndingDelaySoundTimer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("12_xfvfe")
-volume_db = -2.0
 max_db = 2.0
 doppler_tracking = 2
 parameters/looping = true
 
+[node name="AudioStreamPlayer3D_BadEnding" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("13_xjcm5")
+volume_db = 3.0
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="BadEndingDelaySoundTimer" to="." method="_on_bad_ending_delay_sound_timer_timeout"]
