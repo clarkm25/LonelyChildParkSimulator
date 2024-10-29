@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_qs686"]
 [ext_resource type="Script" path="res://addons/smoothing/smoothing.gd" id="2_g43ov"]
-[ext_resource type="Environment" uid="uid://ye4runms7608" path="res://assets/materials/lvl_debug_camenvironment.tres" id="3_pdspm"]
+[ext_resource type="Environment" uid="uid://cogu467vyn1ef" path="res://scenes/world-items/level_cam_environment.tres" id="3_i16pd"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fuvgw"]
 size = Vector3(0.01, 0.01, 1)
@@ -104,6 +104,17 @@ tracks/2/keys = {
 "values": [Vector3(0, 0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_jg1vw"]
+resource_name = "jump_off"
+step = 0.01
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0.1, 1, 0, 0, 0, 1)
+
 [sub_resource type="Animation" id="Animation_b378h"]
 resource_name = "slide_off"
 length = 2.0
@@ -161,17 +172,6 @@ tracks/1/keys = {
 "values": [Vector3(-3.7001, 0, 0), Vector3(-3.14159, 0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_jg1vw"]
-resource_name = "jump_off"
-step = 0.01
-tracks/0/type = "rotation_3d"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0.1, 1, 0, 0, 0, 1)
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_31ei7"]
 _data = {
 "RESET": SubResource("Animation_e01og"),
@@ -193,7 +193,7 @@ script = ExtResource("2_g43ov")
 
 [node name="Camera3D" type="Camera3D" parent="Smoothing"]
 transform = Transform3D(1, -8.14856e-09, -8.73115e-09, -7.78755e-12, 1, 4.65661e-10, 0, 0, 1, -3.98159e-05, 0.454277, -0.0943924)
-environment = ExtResource("3_pdspm")
+environment = ExtResource("3_i16pd")
 current = true
 fov = 100.0
 
